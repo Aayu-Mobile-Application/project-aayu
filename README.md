@@ -4,12 +4,12 @@ Team Aayu noticed that the knowledge among the general public about ayurvedic me
 
 ## Technology Stack
 
- - Front-End: React Native
- - Machine Learning: Python 
- - Version Controllers: Github, Bitbukect
- - IDEs: Visual Studio Code, Pycharm
- - Virtual Devices: Android Studio AVD
- - Cloud Computing Execution Model: AWS Serverless Architecture
+ - Front-End: [React Native](https://reactnative.dev/)
+ - Machine Learning: [Python](https://www.python.org/) , [PyTorch](https://www.python.org/)
+ - Version Controllers: [Github](https://github.com/), [Bitbukect](https://bitbucket.org/)
+ - IDEs: [Visual Studio Code](https://code.visualstudio.com/), [Pycharm](https://www.jetbrains.com/pycharm/)
+ - Virtual Devices: [Android Studio AVD](https://developer.android.com/studio)
+ - Cloud Computing Execution Model: [AWS Serverless Architecture](https://aws.amazon.com/)
  
  ## Features of the prototype
  1.  Identify medical plants using a leaf.
