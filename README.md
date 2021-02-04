@@ -6,7 +6,7 @@ Team Aayu noticed that the knowledge among the general public about ayurvedic me
 
  - Front-End: [React Native](https://reactnative.dev/)
  - Machine Learning: [Python](https://www.python.org/) , [PyTorch](https://www.python.org/)
- - Version Controllers: [Github](https://github.com/), [Bitbukect](https://bitbucket.org/)
+ - Version Controllers: [Github](https://github.com/)
  - IDEs: [Visual Studio Code](https://code.visualstudio.com/), [Pycharm](https://www.jetbrains.com/pycharm/)
  - Virtual Devices: [Android Studio AVD](https://developer.android.com/studio)
  - Cloud Computing Execution Model: [AWS Serverless Architecture](https://aws.amazon.com/)
