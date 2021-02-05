@@ -5,7 +5,7 @@ import {
     TouchableOpacity
 } from 'react-native';
 import {createBottomTabNavigator, BottomTabBar} from "@react-navigation/bottom-tabs"
-import {HomeScreen, PlantInfo,Scan} from "../screens";
+import {HomeScreen, Map, PlantInfo,Scan} from "../screens";
 import {colours,appIcons} from "../constants"
 
 const appNavigTab = createBottomTabNavigator();
@@ -41,7 +41,7 @@ const appNavigTabs = () =>{
                 
             }}
             />
-<appNavigTab.Screen
+        <appNavigTab.Screen
             name="Plant"
             component={PlantInfo}
             options={{
@@ -61,7 +61,7 @@ const appNavigTabs = () =>{
             }}
             />
 
-<appNavigTab.Screen
+        <appNavigTab.Screen
             name="Plant Info"
             component={Scan}
             options={{
@@ -80,6 +80,25 @@ const appNavigTabs = () =>{
                 
             }}
             />
+        <appNavigTab.Screen
+            name="Plant Map"
+            component={Map}
+            options={{
+                tabBarIcon: ({focused}) => (
+                    <Image
+                        style={{
+                            width:25,
+                            height:25,
+                            tintColor: focused ? colours.green : colours.gray //change color when focused and not
+                        }}
+                        source={appIcons.hlp}
+                        resizeMode="contain"
+                    />
+                )
+
+                
+            }}
+        />
     </appNavigTab.Navigator>
     )
 }
