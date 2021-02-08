@@ -1,55 +1,152 @@
-import * as React from 'react';
-import MapView, { PROVIDER_GOOGLE, Marker, Callout } from 'react-native-maps';
-import { StyleSheet, Dimensions, Text } from 'react-native';
+import React, { useState } from "react";
+import {
+  StyleSheet,
+  View,
+  Dimensions,
+  TextInput,
+  ActivityIndicator,
+  TouchableOpacity,
+  Image,
+} from "react-native";
+import MapView, { Marker } from "react-native-maps";
 
 const Map = () => {
-    return (
-        <MapView
-        provider={PROVIDER_GOOGLE}
-        style={styles.map}
-        loadingEnabled={true}
-        region={{
-            latitude: 7.8731,
-            longitude: 80.7718,
-            latitudeDelta: 0.0043,
-            longitudeDelta: 0.0034
-        }}
-        > 
+  const mapRegion = {
+    latitude: 7.8731,
+    longitude: 80.7718,
+    latitudeDelta: 6.0,
+    longitudeDelta: 0.0,
+  };
 
-        <Marker coordinate={{latitude:6.927079, longitude:79.861244,}}
-        image={require('../assets/plant_icon.png')}
-        > 
-        <Callout>
-            <Text>වෙදපාන</Text>
-        </Callout>
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+  const [errorOccurred, setError] = useState(false);
+  const [markers, setMarkers] = useState(false);
+  const [textValue, setTextValue] = useState("");
 
-        </Marker>
+  //fetching data from the link-the json file should be very well structured
+  const search = () => {
+    setMarkers(true);
 
-        <Marker coordinate={{ latitude:6.124593, longitude:81.101074,}}
-        image={require('../assets/plant_icon.png')}
-        >
-        
-        <Callout>
-            <Text>Mango</Text>
-        </Callout>
+    fetch("https://api.mocki.io/v1/740e35e3")
+      .then((response) => response.json())
+      .then((json) => setData(json))
+      .catch((error) => setError(true))
+      .finally(() => setLoading(false));
 
-        </Marker>
+    console.log(textValue);
+  };
 
-        </MapView>
-    )
-}
+  const mapMarkers = () => {
+    if (markers) {
+      return data.map((report) => (
+        <Marker
+          key={report.latitude + report.longitude}
+          coordinate={{
+            latitude: report.latitude,
+            longitude: report.longitude,
+          }}
+          title={report.title}
+        ></Marker>
+      ));
+    }
+  };
+
+  const loadingWhileDataFetched = () => {
+    if (!errorOccurred) {
+      if (markers && isLoading) {
+        return (
+          <ActivityIndicator
+            color="#0000ff"
+            size="large"
+            style={styles.activityIndicator}
+          />
+        );
+      } else {
+        return (
+          <MapView
+            style={styles.map}
+            initialRegion={mapRegion}
+            loadingEnabled={true}
+          >
+            {mapMarkers()}
+          </MapView>
+        );
+      }
+    } else {
+      alert("Error");
+    }
+  };
+  return (
+    <View style={styles.container}>
+      <View style={{ flexDirection: "row" }}></View>
+      <TextInput
+        style={styles.button}
+        placeholder="Search for a Plant"
+        onChangeText={(textInput) => setTextValue(textInput)}
+        value={textValue}
+      />
+      <TouchableOpacity style={styles.search} onPress={search}>
+        <Image
+          source={require("../assets/icons/searchlens.png")}
+          style={styles.searchButton}
+        />
+      </TouchableOpacity>
+
+      {loadingWhileDataFetched()}
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
+    flexDirection: "row",
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 0,
   },
   map: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
+    zIndex: -1,
+    width: Dimensions.get("window").width,
+    height: Dimensions.get("window").height,
+  },
+  text: {
+    fontSize: 30,
+  },
+  activityIndicator: {
+    position: "absolute",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    height: 80,
+  },
+  button: {
+    position: "absolute",
+    top: 50,
+    height: 50,
+    width: "90%",
+    borderColor: "gray",
+    elevation: 40,
+    backgroundColor: "#f2f7f4",
+    borderRadius: 20,
+    fontSize: 20,
+    paddingLeft: 10,
+  },
+  search: {
+    position: "absolute",
+    top: 48,
+    left: 320,
+    height: 30,
+    width: 60,
+    borderColor: "gray",
+    elevation: 40,
+    fontSize: 20,
+  },
+  searchButton: {
+    width: 55,
+    height: 55,
   },
 });
-
-export default Map
+export default Map;
