@@ -2,7 +2,7 @@ import React from 'react';
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import appNavigTabs from './navigation/appNavTabs';
-import {HomeScreen,PlantInfo,AppLoginScreen} from "./screens";
+import {HomeScreen,PlantInfo,AppLoginScreen} from './screens';
 
 const Stack = createStackNavigator();
 
@@ -13,7 +13,6 @@ const App = () => {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouterName={"Main"}
         initialRouterName={"appSignUp"} //setting up the first screen to be displayed, SignUp
       >
          {/* navigation between tabs */}
