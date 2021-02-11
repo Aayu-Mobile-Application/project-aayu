@@ -16,6 +16,7 @@
     "add": "^2.0.6",
     "expo": "~40.0.0",
     "expo-app-loading": "^1.0.1",
+    "expo-google-app-auth": "^8.1.4",
     "expo-status-bar": "~1.0.3",
     "link": "^0.1.5",
     "native-base": "^2.15.2",
