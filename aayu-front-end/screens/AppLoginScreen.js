@@ -1,208 +1,240 @@
-import React from "react"
+import React, { useState } from 'react';
+console.ignoredYellowBox = ['Warning:'];
+import * as Google from 'expo-google-app-auth'
 import {
-
-    StyleSheet,
-    Text,
-    View,
-    Image,
-    Button,
     FlatList,
+    StyleSheet,
+    Button,
     KeyboardAvoidingView,
     Modal,
+    Image,
     TextInput,
+    View,
+    Text,
     ScrollView,
     TouchableOpacity,
     TouchableWithoutFeedback,
     Platform,
-
-} from "react-native"
+} from "react-native";
+//import { LinearGradient } from 'react-native-linear-gradient';
 import { LinearGradient } from 'expo-linear-gradient';
 import { colours, cntSizes, appIcons, images, appFonts } from '../constants'
-//importing google app auth
-import * as GoogleForAayu from 'expo-google-app-auth'
-
-//AppLoginScreen extending
-class AppLoginScreen extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            signedIn: false,
-            name: "",
-            photoUrl: ""
-        }
-    }
 
 
-    //sign in
-    signIn = async () => {
-        try {
-            const result = await GoogleForAayu.logInAsync({
-                androidClientId:
-                    //api key for login: client Id
-                    //OAuth 2.0 Client IDs 
-                    //current auth mail:prasandikabhagya@gmail.com
-                    //id1052848989525-ats8cb7kna3al6r115sg8rcvgfctpv3t.apps.googleusercontent.com
-                    //type:Web application 
-                    "727475050248-pb0bqq81se47p2mq6mhp8kn20sp5r0fn.apps.googleusercontent.com",
+const AppLoginScreen = ({ navigation }) => {
+    //declaring a new state variable , useState to use inside function component to handle local state
+    const [names, setNames] = useState()
 
-                scopes: ["profile", "email"]
-            })
+    const [displayEnteredPasscord, setDisplayEnteredPasscord] = useState(false)
 
-            if (result.type === "success") {
-                this.setState({
-                    signedIn: true,
-                    name: result.user.name,
-                    photoUrl: result.user.photoUrl
-                })
-            } else {
-                console.log("cancelled")
-            }
-        } catch (e) {
-            console.log("error", e)
-        }
-    }
-
-    //rendering 
-    render() {
+    //function to render app header
+    function appHeaderRender() { //header render
         return (
-            <View >
-                {appHeaderRender()}
-                {appLogoRender()}
-                {buttonContRender()}
-                <KeyboardAvoidingView
-                    behavior={Platform.OS === "android" ? "padding" : 0.5}
-                    style={{ flex: 1.0 }}
-                >
-                    <LinearGradient
-                        //linear gradiant color mix in login screen
-                        colors={[colours.green, colours.lightGreen]}
-                        style={{ flex: 1 }}
-                    >
-                        <ScrollView>
-                        </ScrollView>
-                    </LinearGradient>
-                </KeyboardAvoidingView>
+            <TouchableOpacity
+                style={{
+                    //icon aligns
+                    alignItems: "center",
+                    flexDirection: "row",
+                    //back icon margins
+                    paddingHorizontal: cntSizes.paddingObj * 2,
+                    marginTop: cntSizes.paddingObj * 3.62
+                }}
+                //set on action to back btn
+                onPress={() => console.log("appSignUp")}
+            >
+                <Image
+                    style={{
+                        height: 30.24,
+                        //back icon  color
+                        tintColor: colours.black,
+                        width: 30.24,
+                    }} source={appIcons.bckArrw}
+                    //import from icons
+                    resizeMode="contain"
 
+                />
+                {/* login text */}
+                < Text style={{ color: colours.white, ...appFonts.h2, marginLeft: cntSizes.paddingObj * 0.4 }}>Log In</Text>
+            </TouchableOpacity>
+        )
+    }
 
-                {this.state.signedIn ? (
-                    <LoggedInPage name={this.state.name} />
-                ) : (
-                        <LoginPage signIn={this.signIn} />
-                    )}
-
+    //function to render app logo
+    function appLogoRender() {
+        return (
+            <View
+                style={{
+                    //setting up dimensions
+                    height: 175,
+                    alignItems: 'center',
+                    //align logo from top
+                    marginTop: cntSizes.paddingObj * 1.36,
+                    justifyContent: 'center',
+                }}
+            >
+                <Image
+                    //logo setting up
+                    style={{
+                        width: "50%"
+                    }}
+                    resizeMode="contain"
+                    source={images.aayuLogo}
+                />
             </View>
         )
     }
-}
 
-
-
-//function login button
-function buttonContRender() {
-    return (
-        <View style={{ margin: cntSizes.paddingObj * 2 }}>
-            <TouchableOpacity
-                //styling the continue button
+    //function user reg form render
+    function userRegFormRender() {
+        return (
+            <View
                 style={{
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    backgroundColor: colours.black,
-                    borderColor: colours.gray,
-                    borderRadius: cntSizes.radius / 4, height: 55
+                    marginTop: cntSizes.paddingObj * 4,
+                    marginHorizontal: cntSizes.paddingObj * 4,
                 }}
-                //set action to login button
-                onPress={() => navigation.navigate("HomeScreen")}
             >
-                <Text style={{
-                    ...appFonts.h2,
-                    color: colours.white
-                }}>Log In</Text>
-            </TouchableOpacity>
-        </View>
 
-    )
-}
+                {/* getting user name */}
+                <View
+                    style={{ marginTop: cntSizes.paddingObj * 0.28 }}
+                ><Text style={{ color: colours.white, ...appFonts.bdy5 }}>Full Name</Text>
+                    <TextInput
+                        style={{
+                            //styles for user text input field
+                            height: 28, ...appFonts.bdy3,
+                            marginVertical: cntSizes.paddingObj * 0.1,
+                            //borderBottomColor:colours.white,
+                            borderBottomWidth: 1.2,
+                            color: colours.white
+
+                        }}
+                        //props for placeholder
+                        selectionColor={colours.white}
+                        placeholder="Enter Your Name"
+                        placeholderTextColor={colours.white}
+                    />
+                </View>
+
+                {/* getting user password */}
+                <View
+                    style={{ marginTop: cntSizes.paddingObj * 1 }}
+                ><Text style={{ color: colours.white, ...appFonts.bdy5 }}>Password</Text>
+                    <TextInput
+                        style={{
+                            //styles for user text input field
+                            height: 28, ...appFonts.bdy3,
+                            marginVertical: cntSizes.paddingObj * 0.1,
+                            //borderBottomColor:colours.white,
+                            borderBottomWidth: 1.2,
+                            color: colours.white
+                        }}
+                        //props for placeholder
+                        secureTextEntry={true}
+                        selectionColor={colours.white}
+                        placeholder="Enter Password"
+                        //secure text entry input
+                        secureTextEntry={!displayEnteredPasscord}
+                        placeholderTextColor={colours.white}
+                    />
+                    {/* //toggle button for password input */}
+                    <TouchableOpacity
+                        style={{
+                            height: 32,
+                            right: 0,
+                            bottom: 0,
+                            position: 'absolute',
+                            width: 32,
+                        }}
+                        //on press display password
+                        //set on action to display password when eye pressed
+                        onPress={() => setDisplayEnteredPasscord(!displayEnteredPasscord)}
+                    >
+                        {/* setting up image to password view */}
+                        <Image
+                            source={appIcons.OpenEye}//consider to add disable icon when unClicked
+                            style={{
+                                height: 20.25,
+                                width: 20.25,
+                                tintColor: colours.white
+                            }}
+                        />
+
+                    </TouchableOpacity>
+                </View>
+            </View>
+
+        )
+    }
+
+    //function login button
+    function buttonContRender() {
+        return (
+            <View style={{ margin: cntSizes.paddingObj * 2 }}>
+                <TouchableOpacity
+                    //styling the continue button
+                    style={{
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        backgroundColor: colours.black,
+                        borderColor: colours.gray,
+                        borderRadius: cntSizes.radius / 4, height: 55
+                    }}
+                    //set action to login button
+                    onPress={() => navigation.navigate("HomeScreen")}
+                >
+                    <Text style={{
+                        ...appFonts.h2,
+                        color: colours.white
+                    }}>Log In</Text>
+                </TouchableOpacity>
+            </View>
+
+        )
+    }
+
+    async function signInWithGoogleAsync() {
+        try {
+            const result = await Google.logInAsync({
+
+                androidClientId:
+
+                    "727475050248-pb0bqq81se47p2mq6mhp8kn20sp5r0fn.apps.googleusercontent.com",
+                scopes: ['profile', 'email'],
+            });
+            if (result.type === 'success') {
+                setNames(result.user.name);
 
 
+                console.warn(`name=${names}`)
+                return result.name;
+            } else {
+                return { cancelled: true };
+            }
+        } catch (e) {
+            return { error: true };
+        }
+    }
 
-//function to render app header
-function appHeaderRender() { //header render
     return (
-        <TouchableOpacity
-            style={{
-                //icon aligns
-                alignItems: "center",
-                flexDirection: "row",
-                //back icon margins
-                paddingHorizontal: cntSizes.paddingObj * 2,
-                marginTop: cntSizes.paddingObj * 3.62
-            }}
-            //set on action to back btn
-            onPress={() => console.log("appSignUp")}
+        <KeyboardAvoidingView
+            behavior={Platform.OS === "android" ? "padding" : 0.5}
+            style={{ flex: 1.0 }}
         >
-            <Image
-                style={{
-                    height: 30.24,
-                    //back icon  color
-                    tintColor: colours.black,
-                    width: 30.24,
-                }} source={appIcons.bckArrw}
-                //import from icons
-                resizeMode="contain"
+            <LinearGradient
+                //linear gradiant color mix in login screen
+                colors={[colours.green, colours.lightGreen]}
+                style={{ flex: 1 }}
+            >
+                <ScrollView>
+                    {appHeaderRender()}
+                    {appLogoRender()}
+                    {userRegFormRender()}
 
-            />
-            {/* login text */}
-            < Text style={{ color: colours.white, ...appFonts.h2, marginLeft: cntSizes.paddingObj * 0.4 }}>Log In</Text>
-        </TouchableOpacity>
+                    {buttonContRender()}
+                </ScrollView>
+            </LinearGradient>
+        </KeyboardAvoidingView>
     )
 }
-
-
-//function to render app logo
-function appLogoRender() {
-    return (
-        <View
-            style={{
-                //setting up dimensions
-                height: 175,
-                alignItems: 'center',
-                //align logo from top
-                marginTop: cntSizes.paddingObj * 1.36,
-                justifyContent: 'center',
-            }}
-        >
-            <Image
-                //logo setting up
-                style={{
-                    width: "50%"
-                }}
-                resizeMode="contain"
-                source={images.aayuLogo}
-            />
-        </View>
-    )
-}
-
-const LoginPage = props => {
-    return (
-        <View>
-            <Text style={styles.header}>Sign In With Google</Text>
-            <Button title="Sign in with Google" onPress={() => props.signIn()} />
-        </View>
-    )
-}
-
-
-const LoggedInPage = props => {
-    return (
-        <View style={styles.container}>
-            <Text style={styles.header}>Hello {props.name}</Text>
-        </View>
-    )
-}
-
-
-const styles = ({
-
-})
+//export
 export default AppLoginScreen;
