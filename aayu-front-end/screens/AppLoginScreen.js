@@ -23,6 +23,7 @@ import { colours, cntSizes, appIcons, images, appFonts } from '../constants'
 
 const AppLoginScreen = ({ navigation }) => {
     //declaring a new state variable , useState to use inside function component to handle local state
+
     const [names, setNames] = useState()
 
     const [displayEnteredPasscord, setDisplayEnteredPasscord] = useState(false)
@@ -192,10 +193,15 @@ const AppLoginScreen = ({ navigation }) => {
         )
     }
 
+    //function of google login
     async function signInWithGoogleAsync() {
         try {
             const result = await Google.logInAsync({
+                //api key for login: client Id
+                //OAuth 2.0 Client IDs 
 
+                //id1052848989525-ats8cb7kna3al6r115sg8rcvgfctpv3t.apps.googleusercontent.com
+                //type:Web application 
                 androidClientId:
 
                     "727475050248-pb0bqq81se47p2mq6mhp8kn20sp5r0fn.apps.googleusercontent.com",
@@ -203,9 +209,8 @@ const AppLoginScreen = ({ navigation }) => {
             });
             if (result.type === 'success') {
                 setNames(result.user.name);
-
-
-                console.warn(`name=${names}`)
+                //showing user name by popup
+                console.warn(`Hello ${names}. Welcome to the Aayu!`)
                 return result.name;
             } else {
                 return { cancelled: true };
@@ -213,6 +218,10 @@ const AppLoginScreen = ({ navigation }) => {
         } catch (e) {
             return { error: true };
         }
+    }
+
+    const signInWithGoogle = () => {
+        signInWithGoogleAsync()
     }
 
     return (
@@ -229,12 +238,12 @@ const AppLoginScreen = ({ navigation }) => {
                     {appHeaderRender()}
                     {appLogoRender()}
                     {userRegFormRender()}
-
+                    <Button onPress={() => signInWithGoogle()} title="Sign in with Google" />
                     {buttonContRender()}
                 </ScrollView>
             </LinearGradient>
         </KeyboardAvoidingView>
     )
 }
-//export
+
 export default AppLoginScreen;
