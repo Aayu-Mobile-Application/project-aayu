@@ -89,7 +89,7 @@ public class Plant {
     }
 
 
-    //ToString of the class Plant
+    //define toString method
     @Override
     public String toString() {
         return "Plant{" +

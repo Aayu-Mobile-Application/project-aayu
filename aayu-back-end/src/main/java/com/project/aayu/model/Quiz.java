@@ -2,7 +2,7 @@ package com.project.aayu.model;
 
 public class Quiz {
 
-    private User user; // change to user type
+    private User user;
     private int quizScore;
 
     // define parameterize constructor
@@ -12,8 +12,6 @@ public class Quiz {
     }
 
     // define getters and setters
-
-
     public User getUser() {
         return user;
     }

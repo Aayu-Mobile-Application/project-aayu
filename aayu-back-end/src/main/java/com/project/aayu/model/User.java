@@ -40,7 +40,7 @@ public class User {
     }
 
 
-    //defining ToString of the User class
+    //define toString method
     @Override
     public String toString() {
         return "User{" +
