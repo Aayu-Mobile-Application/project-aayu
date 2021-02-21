@@ -2,21 +2,23 @@ package com.project.aayu.model;
 
 public class Quiz {
 
-    private String user; // change to user type
+    private User user; // change to user type
     private int quizScore;
 
     // define parameterize constructor
-    public Quiz(String user, int quizScore) {
+    public Quiz(User user, int quizScore) {
         this.user = user;
         this.quizScore = quizScore;
     }
 
     // define getters and setters
-    public String getUser() {
+
+
+    public User getUser() {
         return user;
     }
 
-    public void setUser(String user) {
+    public void setUser(User user) {
         this.user = user;
     }
 
@@ -32,7 +34,7 @@ public class Quiz {
     @Override
     public String toString() {
         return "Quiz{" +
-                "user='" + user + '\'' +
+                "user=" + user +
                 ", quizScore=" + quizScore +
                 '}';
     }
