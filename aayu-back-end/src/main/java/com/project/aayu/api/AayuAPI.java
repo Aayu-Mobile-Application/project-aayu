@@ -22,6 +22,11 @@ public class AayuAPI {
         return aayuManager.viewLocation();
     }
 
+    @GetUser("/getUser")
+    public List<Map> getUserDetails(){
+        return aayuManager.viewUser();
+    }
+
 
 
 

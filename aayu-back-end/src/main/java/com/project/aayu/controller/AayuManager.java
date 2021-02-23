@@ -55,7 +55,7 @@ public class AayuManager implements AayuInterface{
 
 
     //create user arrayList
-    List<User> userDataBase=new ArrayList<User>(Collections.singleton(new User(1,"Admin","admin@aayu.ac.lk")));
+    List<User> userDataBase=new ArrayList<User>(Collections.singleton(new User(1,"Admin","admin@aayu.ac.lk")))
 
     
     @Override
@@ -67,6 +67,12 @@ public class AayuManager implements AayuInterface{
 
 //------------------------------------------View User----------------------------------------------------------------
 
+
+    @Override
+    public List<User> viewUser() {
+        return addNewUser(0,"","");
+        return userDataBase;
+    }
 
 
 //------------------------------------------Plant Derails----------------------------------------------------------------
