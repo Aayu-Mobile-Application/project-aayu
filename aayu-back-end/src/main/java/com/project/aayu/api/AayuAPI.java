@@ -2,6 +2,8 @@ package com.project.aayu.api;
 
 import com.project.aayu.controller.AayuManager;
 import com.project.aayu.model.Map;
+import com.project.aayu.model.Plant;
+import com.project.aayu.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,13 +24,13 @@ public class AayuAPI {
         return aayuManager.viewLocation();
     }
 
-    @GetUser("/getUser")
+    @GetMapping("/getUser")
     public List<User> getUserDetails(){
         return aayuManager.viewUser();
     }
 
 
-    @GetPlant("/getPlant")
+    @GetMapping("/getPlant")
     public List<Plant> getPlantInformation(){
         return aayuManager.viewPlant();
     }

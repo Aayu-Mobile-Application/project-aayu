@@ -60,6 +60,7 @@ public class AayuManager implements AayuInterface{
     
     @Override
     public void addNewUser(int userId, String userName, String userEmail) {
+
     }
 
     
@@ -70,7 +71,6 @@ public class AayuManager implements AayuInterface{
 
     @Override
     public List<User> viewUser() {
-        return addNewUser(0,"","");
         return userDataBase;
     }
 
@@ -82,7 +82,7 @@ public class AayuManager implements AayuInterface{
 
     @Override
     public List<Plant> viewPlant() {
-        return null;
+        return plantDataBase;
     }
     
 }
