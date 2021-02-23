@@ -2,16 +2,17 @@ package com.project.aayu.model;
 
 public class Map {
 
-    private double longitude;
-    private double latitude;
-    private User user;
     private String plantName;
+    private double latitude;
+    private double longitude;
+
+    //private String user;
+
 
     // define parameterize constructor
-    public Map(double longitude, double latitude, User user, String plantName) {
+    public Map(String plantName, double latitude, double longitude) {
         this.longitude = longitude;
         this.latitude = latitude;
-        this.user = user;
         this.plantName = plantName;
     }
 
@@ -32,13 +33,13 @@ public class Map {
         this.latitude = latitude;
     }
 
-    public User getUser() {
-        return user;
-    }
+    //public String getUser() {
+       // return user;
+    //}
 
-    public void setUser(User user) {
-        this.user = user;
-    }
+    //public void setUser(String user) {
+        //this.user = user;
+    //}
 
     public String getPlantName() {
         return plantName;
@@ -54,7 +55,7 @@ public class Map {
         return "Map{" +
                 "longitude=" + longitude +
                 ", latitude=" + latitude +
-                ", user=" + user +
+                ", user=" + //user +
                 ", plantName='" + plantName + '\'' +
                 '}';
     }

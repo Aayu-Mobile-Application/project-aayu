@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface AayuInterface {
     // add location to the database
-    void addLocation(double longitude,int latitude, String userName, String plantName);
+    void addLocation(double longitude, double latitude, String userName, String plantName);
     // get location details
     List<Map> viewLocation();
     // add quiz score
