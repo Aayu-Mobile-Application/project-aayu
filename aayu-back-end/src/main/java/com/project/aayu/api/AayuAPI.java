@@ -23,9 +23,16 @@ public class AayuAPI {
     }
 
     @GetUser("/getUser")
-    public List<Map> getUserDetails(){
+    public List<User> getUserDetails(){
         return aayuManager.viewUser();
     }
+
+
+    @GetPlant("/getPlant")
+    public List<Plant> getPlantInformation(){
+        return aayuManager.viewPlant();
+    }
+
 
 
 
