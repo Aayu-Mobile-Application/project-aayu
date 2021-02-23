@@ -5,15 +5,15 @@ public class Map {
     private String plantName;
     private double latitude;
     private double longitude;
-
-    //private String user;
+    private String user;
 
 
     // define parameterize constructor
-    public Map(String plantName, double latitude, double longitude) {
+    public Map(String plantName, double latitude, double longitude, String user) {
         this.longitude = longitude;
         this.latitude = latitude;
         this.plantName = plantName;
+        this.user = user;
     }
 
     // getter and setter
@@ -33,13 +33,13 @@ public class Map {
         this.latitude = latitude;
     }
 
-    //public String getUser() {
-       // return user;
-    //}
+    public String getUser() {
+        return user;
+    }
 
-    //public void setUser(String user) {
-        //this.user = user;
-    //}
+    public void setUser(String user) {
+        this.user = user;
+    }
 
     public String getPlantName() {
         return plantName;
@@ -55,7 +55,7 @@ public class Map {
         return "Map{" +
                 "longitude=" + longitude +
                 ", latitude=" + latitude +
-                ", user=" + //user +
+                ", user=" + user +
                 ", plantName='" + plantName + '\'' +
                 '}';
     }
