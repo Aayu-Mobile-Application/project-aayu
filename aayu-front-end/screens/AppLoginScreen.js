@@ -26,7 +26,7 @@ import { colours, cntSizes, appIcons, images, appFonts } from '../constants';
 const AppLoginScreen = ({ navigation }) => {
     //declaring a new state variable , useState to use inside function component to handle local state
 
-    const [names, setNames] = useState();
+    const [names, setNames] = useState("");
 
     const [displayEnteredPasscord, setDisplayEnteredPasscord] = useState(false);
 
@@ -169,40 +169,40 @@ const AppLoginScreen = ({ navigation }) => {
         )
     }
 
-    
+
     const signInWithGoogle = () => {
         signInWithGoogleAsync()
     }
-    
+
     //function of google login
     async function signInWithGoogleAsync() {
-      try {
-          const result = await Google.logInAsync({
-              //api key for login: client Id
-              //OAuth 2.0 Client IDs 
+        try {
+            const result = await Google.logInAsync({
+                //api key for login: client Id
+                //OAuth 2.0 Client IDs 
 
-              //id1052848989525-ats8cb7kna3al6r115sg8rcvgfctpv3t.apps.googleusercontent.com
-              //type:Web application 
-              androidClientId:
+                //id1052848989525-ats8cb7kna3al6r115sg8rcvgfctpv3t.apps.googleusercontent.com
+                //type:Web application 
+                androidClientId:
 
-                  "727475050248-pb0bqq81se47p2mq6mhp8kn20sp5r0fn.apps.googleusercontent.com",
-              scopes: ['profile', 'email'],
-          });
-          if (result.type === 'success') {
-              setNames(result.user.name);
-              //showing user name by popup
-              Alert.alert('Hey There !!!',`Hey ${names}. Welcome to Aayu!`);
-              return result.name;
-            
-          } else {
-              return { cancelled: true };
-          }
-      } catch (e) {
-          return { error: true };
-      }
-  }
+                    "727475050248-pb0bqq81se47p2mq6mhp8kn20sp5r0fn.apps.googleusercontent.com",
+                scopes: ['profile', 'email'],
+            });
+            if (result.type === 'success') {
+                setNames(result.user.name);
+                //showing user name by popup
+                Alert.alert('Hey There !!!', `Hey ${names}. Welcome to Aayu!`);
+                return result.name;
 
- 
+            } else {
+                return { cancelled: true };
+            }
+        } catch (e) {
+            return { error: true };
+        }
+    }
+
+
 
     //function login button
     function buttonContRender() {
@@ -218,7 +218,7 @@ const AppLoginScreen = ({ navigation }) => {
                         borderRadius: cntSizes.radius / 4, height: 55
                     }}
                     //set action to login button
-                    onPress={() => {signInWithGoogle();navigation.navigate("HomeScreen");}}
+                    onPress={() => { signInWithGoogle(); navigation.navigate("HomeScreen"); }}
                 >
                     <Text style={{
                         ...appFonts.h2,
@@ -246,8 +246,7 @@ const AppLoginScreen = ({ navigation }) => {
             });
             if (result.type === 'success') {
                 setNames(result.user.name);
-                //showing user name by popup
-                console.warn(`Hello ${names}. Welcome to the Aayu!`)
+
                 return result.name;
             } else {
                 return { cancelled: true };
@@ -256,6 +255,8 @@ const AppLoginScreen = ({ navigation }) => {
             return { error: true };
         }
     }
+    //getting name
+    console.warn(`${names}`);
 
     // const signInWithGoogle = () => {
     //     signInWithGoogleAsync()
