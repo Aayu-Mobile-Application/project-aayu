@@ -13,8 +13,6 @@ import java.util.List;
 @Service
 public class AayuManager implements AayuInterface{
 
-
-    
     // create location arrayList
     List<Map> locationDB = new ArrayList<Map>(Collections.singleton(new Map("Mango",6.936149,79.844254, "Minura")));
     //create user arrayList
@@ -24,52 +22,44 @@ public class AayuManager implements AayuInterface{
     // create quiz arraylist
     List<Quiz> quizDatabase = new ArrayList<Quiz>(Collections.singleton(new Quiz("Minura", 72)));
 
-    //------------------------------------------Location Services----------------------------------------------------------------
-
+    //add location
     @Override
     public void addLocation(double longitude, double latitude, String userName, String plantName) {
         Map newLocation = new Map(plantName,latitude,longitude,userName);
         locationDB.add(newLocation);
     }
 
+    //view location
     @Override
     public List<Map> viewLocation() {
         return locationDB;
     }
 
-
-    //------------------------------------------Quiz Services----------------------------------------------------------------
-
-
+    //quiz
     @Override
     public void addScore(int score, String userName) {
         Quiz newQuiz = new Quiz(userName,score);
         quizDatabase.add(newQuiz);
     }
 
-
+    //view score
     @Override
     public List<Quiz> viewScore() {
         return quizDatabase;
     }
 
-
-    //------------------------------------------User Services----------------------------------------------------------------
-    
+    //add user
     @Override
     public void addNewUser(int userId, String userName, String userEmail) {
-
     }
 
+    //get user
     @Override
     public List<User> viewUser() {
         return userDataBase;
     }
 
-
-    //------------------------------------------Plant Services----------------------------------------------------------------
-
-
+    //view plant details
     @Override
     public List<Plant> viewPlant() {
         return plantDataBase;
