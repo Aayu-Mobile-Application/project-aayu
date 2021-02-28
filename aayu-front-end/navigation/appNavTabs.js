@@ -44,7 +44,7 @@ const appNavigTabs = () => {
         options={{
           tabBarIcon: ({ focused }) => (
             <Image
-              source={appIcons.cam}
+              source={appIcons.hlp}
               resizeMode="contain"
               style={{
                 width: 25,
@@ -67,7 +67,7 @@ const appNavigTabs = () => {
                 height: 25,
                 tintColor: focused ? colours.green : colours.gray, //change color when focused and not
               }}
-              source={appIcons.hlp}
+              source={appIcons.cam}
               resizeMode="contain"
             />
           ),
