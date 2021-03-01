@@ -2,43 +2,28 @@ package com.project.aayu.model;
 
 public class Map {
 
+    private int locationId;
     private String plantName;
     private double latitude;
     private double longitude;
     private String user;
 
-
     // define parameterize constructor
-    public Map(String plantName, double latitude, double longitude, String user) {
-        this.longitude = longitude;
-        this.latitude = latitude;
+    public Map(int locationId, String plantName, double latitude, double longitude, String user) {
+        this.locationId = locationId;
         this.plantName = plantName;
+        this.latitude = latitude;
+        this.longitude = longitude;
         this.user = user;
     }
 
     // getter and setter
-    public double getLongitude() {
-        return longitude;
+    public int getLocationId() {
+        return locationId;
     }
 
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
-    }
-
-    public double getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
-    }
-
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
+    public void setLocationId(int locationId) {
+        this.locationId = locationId;
     }
 
     public String getPlantName() {
@@ -49,14 +34,39 @@ public class Map {
         this.plantName = plantName;
     }
 
-    // deine toString method
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    // define toString method
     @Override
     public String toString() {
         return "Map{" +
-                "longitude=" + longitude +
-                ", latitude=" + latitude +
-                ", user=" + user +
+                "locationId=" + locationId +
                 ", plantName='" + plantName + '\'' +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                ", user='" + user + '\'' +
                 '}';
     }
 }
