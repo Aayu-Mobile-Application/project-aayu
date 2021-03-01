@@ -48,6 +48,16 @@
 			<artifactId>nd4j-native-platform</artifactId>
 			<version>1.0.0-beta2</version>
 		</dependency>
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk-core</artifactId>
+			<version>1.11.792</version>
+		</dependency>
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk-dynamodb</artifactId>
+			<version>1.11.456</version>
+		</dependency>
 	</dependencies>
 
 	<build>
