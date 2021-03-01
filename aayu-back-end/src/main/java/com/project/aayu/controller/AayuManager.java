@@ -1,5 +1,6 @@
 package com.project.aayu.controller;
 
+import com.project.aayu.database.DynamoDataLoad;
 import com.project.aayu.model.Map;
 import com.project.aayu.model.Plant;
 import com.project.aayu.model.Quiz;
@@ -26,7 +27,7 @@ public class AayuManager implements AayuInterface{
     @Override
     public void addLocation(int locationId, double longitude, double latitude, String userName, String plantName) {
         Map newLocation = new Map(locationId, plantName,latitude,longitude,userName);
-        locationDB.add(newLocation);
+        //DynamoDataLoad.locationDB.add(newLocation);
     }
 
     //view location
