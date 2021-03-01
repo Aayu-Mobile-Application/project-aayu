@@ -14,18 +14,18 @@ import java.util.List;
 public class AayuManager implements AayuInterface{
 
     // create location arrayList
-    List<Map> locationDB = new ArrayList<Map>(Collections.singleton(new Map("Mango",6.936149,79.844254, "Minura")));
+    List<Map> locationDB = new ArrayList<Map>(Collections.singleton(new Map(1,"Mango",6.936149,79.844254, "Minura")));
     //create user arrayList
     List<Plant> plantDataBase = new ArrayList<Plant>(Collections.singleton(new Plant(1,"Idian beech","Pongamia pinnata","FABACEAE","Native","Swelling,Pains,Worm diseases,Wounds,Liver diseases,Cough,Skin diseases,Psoriasis,Rheumatoid arthritis,Constipation,Nausea,Hemorrhoids,Oral diseases","Tree to about 30 m tall; stems glabrous; stipules cucullate, 3.5-4 mm long; leaves about 5-9 foliate, the axis 6-17 cm long; leaflets (2-) 3-10 cm long, 2-5 cm wide; inflorescences racemose; flowers 12-14 mm long; petals white to pinkish; fruit glabrous, indehicent, 5-8 cm long, 2.5-3 cm wide, about 0.8-1 cm thick, sessile, 1 or 2 seeded; seeds brown, lustrous, about 2 cm long, 1 cm wide.","‌Guava")));
     //create user arrayList
     List<User> userDataBase = new ArrayList<User>(Collections.singleton(new User(1,"Admin","admin@aayu.ac.lk")));
     // create quiz arraylist
-    List<Quiz> quizDatabase = new ArrayList<Quiz>(Collections.singleton(new Quiz("Minura", 72)));
+    List<Quiz> quizDatabase = new ArrayList<Quiz>(Collections.singleton(new Quiz(1,"Minura", 72)));
 
     //add location
     @Override
-    public void addLocation(double longitude, double latitude, String userName, String plantName) {
-        Map newLocation = new Map(plantName,latitude,longitude,userName);
+    public void addLocation(int locationId, double longitude, double latitude, String userName, String plantName) {
+        Map newLocation = new Map(locationId, plantName,latitude,longitude,userName);
         locationDB.add(newLocation);
     }
 
@@ -37,8 +37,8 @@ public class AayuManager implements AayuInterface{
 
     //quiz
     @Override
-    public void addScore(int score, String userName) {
-        Quiz newQuiz = new Quiz(userName,score);
+    public void addScore(int quizId, int score, String userName) {
+        Quiz newQuiz = new Quiz(quizId, userName, score);
         quizDatabase.add(newQuiz);
     }
 

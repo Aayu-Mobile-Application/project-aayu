@@ -9,11 +9,11 @@ import java.util.List;
 
 public interface AayuInterface {
     // add location to the database
-    void addLocation(double longitude, double latitude, String userName, String plantName);
+    void addLocation(int locationId, double longitude, double latitude, String userName, String plantName);
     // get location details
     List<Map> viewLocation();
     // add quiz score
-    void addScore(int score, String userName);
+    void addScore(int quizId, int score, String userName);
     // view quiz score
     List<Quiz> viewScore();
     // add new user
