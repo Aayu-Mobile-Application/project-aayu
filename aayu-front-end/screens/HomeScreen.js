@@ -39,7 +39,7 @@ const HomeScreen = ({navigation,route}) => {
                 }}>
                     <View style={{ marginTop: cntSizes.paddingObj * 2.2, marginHorizontal: cntSizes.paddingObj }}>
                         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-                            <Text style={{ color: colours.white, ...appFonts.h2, }}>Hello {route.params.Uname}</Text>
+                            <Text style={{ color: colours.white, ...appFonts.h2, }}>Hello {route.params.paramKey}</Text>
                             {/* <Text style={{ color: colours.white, ...appFonts.h2, }}>Welcome Aayu {route.params.Uname1}</Text> */}
                         </View>
                         {/* <View style={{ marginTop: cntSizes.baseSpc }}>

@@ -28,6 +28,8 @@ export const aayuLogo = require("../assets/imgs/aayuLogo.png");
 export const hmeBanner2 = require("../assets/imgs/banner2.png");
 export const bannerHlp = require("../assets/imgs/bannerHlp.png");
 export const quizBanner = require("../assets/imgs/banner3.png");
+export const googleBtn = require("../assets/imgs/google.png");
+export const contnue = require("../assets/imgs/contnue.png");
 export const quizBanner2 = require("../assets/imgs/banner4.png");
 
 export default {
@@ -38,7 +40,9 @@ export default {
     plant_04,
     plant_05,
     hmeBanner2,
+    googleBtn,
     bannerHlp,
+    contnue,
     quizBanner,
     quizBanner2,
     hmeBanner
