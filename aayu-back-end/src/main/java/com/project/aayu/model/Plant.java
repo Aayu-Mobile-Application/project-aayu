@@ -2,7 +2,7 @@ package com.project.aayu.model;
 public class Plant {
 
     //variables of Plant class
-    private int idOfPlant;
+    private long idOfPlant;
     private String localName;
     private String scientificName;
     private String familyName;
@@ -12,7 +12,7 @@ public class Plant {
     private String similarPlants;
 
     //constructor
-    public Plant(int idOfPlant, String localName, String scientificName, String familyName, String statusOfPlant, String treatments, String description, String similarPlants) {
+    public Plant(long idOfPlant, String localName, String scientificName, String familyName, String statusOfPlant, String treatments, String description, String similarPlants) {
         this.idOfPlant = idOfPlant;
         this.localName = localName;
         this.scientificName = scientificName;
@@ -24,11 +24,11 @@ public class Plant {
     }
 
     //getters and setters of class Plant
-    public int getIdOfPlant() {
+    public long getIdOfPlant() {
         return idOfPlant;
     }
 
-    public void setIdOfPlant(int idOfPlant) {
+    public void setIdOfPlant(long idOfPlant) {
         this.idOfPlant = idOfPlant;
     }
 
