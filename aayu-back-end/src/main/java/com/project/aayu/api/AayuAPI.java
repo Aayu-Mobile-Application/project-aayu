@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.List;
 // add rest controller
 @RestController
@@ -29,8 +31,8 @@ public class AayuAPI {
     }
 
     @GetMapping("/getPlant")
-    public List<Plant> getPlantInformation(){
-        return aayuManager.viewPlant();
+    public List<Plant> getPlantInformation() {
+        return aayuManager.viewEnglishPlantData();
     }
 
     @GetMapping("/getQuiz")
