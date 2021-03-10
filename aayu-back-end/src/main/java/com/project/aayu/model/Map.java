@@ -2,14 +2,14 @@ package com.project.aayu.model;
 
 public class Map {
 
-    private int locationId;
+    private long locationId;
     private String plantName;
     private double latitude;
     private double longitude;
     private String user;
 
     // define parameterize constructor
-    public Map(int locationId, String plantName, double latitude, double longitude, String user) {
+    public Map(long locationId, String plantName, double latitude, double longitude, String user) {
         this.locationId = locationId;
         this.plantName = plantName;
         this.latitude = latitude;
@@ -18,11 +18,11 @@ public class Map {
     }
 
     // getter and setter
-    public int getLocationId() {
+    public long getLocationId() {
         return locationId;
     }
 
-    public void setLocationId(int locationId) {
+    public void setLocationId(long locationId) {
         this.locationId = locationId;
     }
 
