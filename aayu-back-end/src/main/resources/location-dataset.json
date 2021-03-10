@@ -1,0 +1,18 @@
+[
+  {
+    "locationId":1,
+    "plantName":"Mango",
+    "latitude":6.936149,
+    "longitude":79.844254,
+    "user":"Minura"
+  },
+  {
+    "locationId":2,
+    "plantName":"Banana",
+    "latitude":6.97075900,
+    "longitude":80.78318000,
+    "user":"Minura"
+  }
+
+
+]
