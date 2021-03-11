@@ -5,11 +5,15 @@ import AppLoginScreen from './AppLoginScreen'
 import InfoPage from './InfoPage'
 import About from './About'
 import Help from './Help'
+import AppQuiz from './AppQuiz'
+import AppQuizHolder from './AppQuizHolder'
 
 
 export{
     HomeScreen,
     PlantInfo,
+    AppQuiz,
+    AppQuizHolder,
     Scan,
     AppLoginScreen,
     About,

@@ -2,7 +2,7 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import appNavigTabs from "./navigation/appNavTabs";
-import { HomeScreen, PlantInfo, AppLoginScreen, Scan,Help } from "./screens";
+import { HomeScreen, PlantInfo, AppLoginScreen, Scan,Help,AppQuiz,AppQuizHolder } from "./screens";
 import Map from "./screens/Map";
 import CameraView from "./screens/CameraView";
 import InfoPage from "./screens/InfoPage";
@@ -24,6 +24,8 @@ const App = () => {
         <Stack.Screen name="PlantInfo" component={PlantInfo} />
         <Stack.Screen name="MapView" component={Map} />
         <Stack.Screen name="CameraView" component={CameraView} />
+        <Stack.Screen name="AppQuiz" component={AppQuiz} />
+        <Stack.Screen name="AppQuizHolder" component={AppQuizHolder} />
         <Stack.Screen name="Help" component={Help} />
         <Stack.Screen name="InfoPage" component={InfoPage} />
         <Stack.Screen name="Type" component={Scan} />

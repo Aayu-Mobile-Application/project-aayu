@@ -107,7 +107,7 @@ const HomeScreen = ({navigation,route}) => {
                  icnImg={appIcons.quiz}
                  // appppDesgn
                  icnLabel="Quiz"
-                 onPress={()=>{navigation.navigate("PlantInfo")}}
+                 onPress={()=>{navigation.navigate("AppQuiz")}}
                  bckColor={["#00996D",'#00e673']}
              /> 
              <NavigBtnDesgnItems
