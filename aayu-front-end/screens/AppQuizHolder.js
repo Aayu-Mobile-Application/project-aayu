@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import { render } from "react-dom";
+//import quiz container
+import {AppQuestions} from './AppQuizContainer';
 //import { Router, Route, Switch } from "react-router";
 import{
     View,
@@ -19,36 +21,18 @@ import { colours,images,appIcons,cntSizes,appFonts } from "../constants";
 import { LinearGradient } from 'expo-linear-gradient';
 //import  {signInWithGoogleAsync} from './AppLoginScreen';
 
-
-
-//navigation buttons
-const NavigBtnDesgnItems=({bckColor,icnImg,icnLabel,onPress}) =>{
-    return(
-        <TouchableOpacity
-            style={{
-                alignItems: 'center',
-                justifyContent: 'center',
-                flex: 1, }}
-            onPress={onPress}
-        >
-            <View style={[styles.shadow, { width: 200, height: 80 }]}>
-                <LinearGradient
-                    style={[{ alignItems: 'center',flex: 1 , justifyContent: 'center', borderRadius: 15, marginTop: cntSizes.paddingObj/8 }]}
-                    colors={bckColor}
-                    start={{ x: 0, y: 0 }}
-                    end={{ x: 0, y: 1 }}
-                >
-                   {/* < Text style={{ color: colours.white, ...appFonts.h1, marginLeft: cntSizes.paddingObj * 0.4 }}>Start Quiz</Text> */}
-                </LinearGradient>
-            </View>
-            <Text style={{...appFonts.bdy3,color: colours.green,marginTop:cntSizes.baseSpc/4}}>{icnLabel}</Text>
-        </TouchableOpacity>
-    )
-}
-
-
-
 const AppQuizHolder = ({navigation,route}) => {
+
+    //handle current state of each question
+    const [questionCrntOn, setQuestionCrntOn ] = useState(0);
+
+    //handle state after answer is chosen
+    const [answrChsn, setAnswrChsn] = useState("")
+
+    //navig between questions
+    const nextQuiz = () =>{
+
+    }
 
     //declaring a new state variable , useState to use inside function component to handle local state
     //const [names,setNames] = useState();
@@ -83,7 +67,7 @@ const AppQuizHolder = ({navigation,route}) => {
                     </View>
 
                         <View>
-                            <Text style={{ color: colours.white, ...appFonts.h2,marginTop: cntSizes.paddingObj * 2, marginHorizontal: cntSizes.paddingObj }}> Sample Question for quiz?</Text>
+                            <Text style={{ color: colours.white, ...appFonts.h2,marginTop: cntSizes.paddingObj * 2, marginHorizontal: cntSizes.paddingObj }}> {AppQuestions[questionCrntOn].prompt}</Text>
                         </View>
 
                     </View>
@@ -104,8 +88,8 @@ const AppQuizHolder = ({navigation,route}) => {
                                 
                             /> */}
                         <Button
-                            onPress={()=>{navigation.navigate("AppQuizHolder")}}
-                            title="Sample Answer For Quiz"
+                            onPress={()=> setAnswrChsn("ans4")}
+                            title={AppQuestions[questionCrntOn].ans3}
                             color="#2a6337"
                         />
 
@@ -116,31 +100,42 @@ const AppQuizHolder = ({navigation,route}) => {
                         <View style={{flexDirection: 'row', marginTop: cntSizes.paddingObj, paddingHorizontal: cntSizes.paddingObj*4 }}> 
                 
                         <Button
-                            onPress={()=>{navigation.navigate("AppQuizHolder")}}
-                            title="Sample Answer For Quiz"
+                            class="btns"
+                            onPress={()=> setAnswrChsn("ans2")}
+                            title={AppQuestions[questionCrntOn].ans2}
                             color="#2a6337"
-                            accessibilityLabel="Learn more about this purple button"
                             borderRadius='8'
+                            width='100%'
+                        />
+                        </View>
+
+                        <View style={{flexDirection: 'row', marginTop: cntSizes.paddingObj, paddingHorizontal: cntSizes.paddingObj*4}}> 
+                
+                        <Button
+                            onPress={()=> setAnswrChsn("ans1")}
+                            title={AppQuestions[questionCrntOn].ans1}
+                            color="#2a6337"
+                            width='100'
                         />
                         </View>
 
                         <View style={{flexDirection: 'row', marginTop: cntSizes.paddingObj, paddingHorizontal: cntSizes.paddingObj*4 }}> 
                 
                         <Button
-                            onPress={()=>{navigation.navigate("AppQuizHolder")}}
-                            title="Sample Answer For Quiz"
+                            onPress={()=> setAnswrChsn("ans3")}
+                            title={AppQuestions[questionCrntOn].ans4}
                             color="#2a6337"
                         />
                         </View>
-
-                        <View style={{flexDirection: 'row', marginTop: cntSizes.paddingObj, paddingHorizontal: cntSizes.paddingObj*4 }}> 
+                        {/* next quiz btn */}
+                        <View style={{flexDirection: 'row', marginTop: cntSizes.paddingObj*2, paddingHorizontal: cntSizes.paddingObj*6 }}> 
                 
                         <Button
                             onPress={()=>{navigation.navigate("AppQuizHolder")}}
-                            title="Sample Answer For Quiz"
+                            title='Next'
                             color="#2a6337"
                         />
-                        </View>     
+                        </View>       
                     </View>       
         </View>
 
@@ -162,7 +157,7 @@ const styles = StyleSheet.create({
         shadowOpacity:0.3,
         elevation:6,
         shadowRadius:2.86
-    }
+    },
 })
 
 export default AppQuizHolder;

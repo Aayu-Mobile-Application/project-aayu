@@ -7,7 +7,7 @@ import About from './About'
 import Help from './Help'
 import AppQuiz from './AppQuiz'
 import AppQuizHolder from './AppQuizHolder'
-
+import AppQuestions from './AppQuizContainer';
 
 export{
     HomeScreen,
@@ -17,6 +17,7 @@ export{
     Scan,
     AppLoginScreen,
     About,
+    AppQuestions,
     Help,
     InfoPage
 }
