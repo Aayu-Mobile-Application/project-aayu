@@ -17,13 +17,17 @@
         android:theme="@style/Theme.Aayu">
         <activity android:name=".ScanResults"></activity>
         <activity android:name=".AppMap"/>
-        <activity android:name=".CameraScan" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".AppLogin"
+            android:theme="@style/Theme.Aayu.TransparentTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".CameraScan" />
+        <activity android:name=".MainActivity">
+
         </activity>
     </application>
 
