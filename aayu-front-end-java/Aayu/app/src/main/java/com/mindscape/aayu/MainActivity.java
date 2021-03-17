@@ -13,7 +13,8 @@ public class MainActivity extends AppCompatActivity {
 
     //scan button
     ImageView scnBtn;
-
+    //map btn
+    ImageView mapBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,12 +23,22 @@ public class MainActivity extends AppCompatActivity {
 
         //getByBtnId
         scnBtn = findViewById(R.id.scan);
+        //getByBtnId
+        mapBtn = findViewById(R.id.map);
 
         //set intent from main to scan
         scnBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(),CameraScan.class);
+                startActivity(i);
+            }
+        });
+        //set intent from main to scan
+        mapBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(),AppMap.class);
                 startActivity(i);
             }
         });

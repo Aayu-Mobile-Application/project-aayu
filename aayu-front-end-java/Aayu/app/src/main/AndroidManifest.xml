@@ -16,6 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Aayu">
         <activity android:name=".ScanResults"></activity>
+        <activity android:name=".AppMap"/>
         <activity android:name=".CameraScan" />
         <activity android:name=".MainActivity">
             <intent-filter>
