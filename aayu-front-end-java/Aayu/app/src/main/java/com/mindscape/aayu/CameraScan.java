@@ -23,6 +23,7 @@ public class CameraScan extends AppCompatActivity {
     private Bitmap imageBitmap;
     private static final int REQUEST_IMAGE_CAPTURE = 101;
     private static final int RESULT_LOAD_IMG = 100;
+    private int leafType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class CameraScan extends AppCompatActivity {
         openCameraButton = (Button) findViewById(R.id.button2);
         importImage = (Button) findViewById(R.id.button3);
         confirmImage = (Button) findViewById(R.id.confirm);
+        leafType=getIntent().getIntExtra("leafType",0);
         openCameraButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -76,13 +78,13 @@ public class CameraScan extends AppCompatActivity {
 
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == 101) {
-            if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+        if(requestCode==101){
+            if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode==RESULT_OK) {
                 Bundle extras = data.getExtras();
                 imageBitmap = (Bitmap) extras.get("data");
                 imageView.setImageBitmap(imageBitmap);
             }
-        } else {
+        }else{
             if (resultCode == RESULT_OK) {
                 try {
                     final Uri imageUri = data.getData();
@@ -94,17 +96,20 @@ public class CameraScan extends AppCompatActivity {
 
                 }
 
-            } else {
-                Log.d("Error", "permission not granted");
+            }else {
+                Log.d("Error","permission not granted");
             }
 
         }
-    }
 
+
+
+    }
     public void openScanResultScreen(){
         if(imageBitmap!=null){
-            Intent intent = new Intent(this,ScanResults.class);
+            Intent intent = new Intent(this,LanguageSelector.class);
             intent.putExtra("scannedImage", imageBitmap);
+            intent.putExtra("leafType", leafType);
             try {
                 startActivity(intent);
             }catch(RuntimeException e){

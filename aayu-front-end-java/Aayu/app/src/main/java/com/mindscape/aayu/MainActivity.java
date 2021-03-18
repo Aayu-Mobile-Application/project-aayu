@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         scnBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(),CameraScan.class);
+                Intent i = new Intent(getApplicationContext(),LeafType.class);
                 startActivity(i);
             }
         });
