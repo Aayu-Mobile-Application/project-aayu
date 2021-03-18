@@ -214,12 +214,49 @@
                 android:id="@+id/imageView"
                 android:layout_width="306dp"
                 android:layout_height="302dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintHorizontal_bias="0.39"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView4"
                 app:srcCompat="@drawable/banner31" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="286dp"
+                android:layout_height="145dp"
+                android:fontFamily="cursive"
+                android:text="Team Aayu is consisted of dedicated group of youngsters with the belief of turning innovative ideas into reality..."
+                android:textColor="@color/green"
+                android:textSize="24sp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.41"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="Our Vision"
+                android:textColor="@color/green"
+                android:textSize="24sp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.116"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="365dp"
+                android:layout_height="225dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView9"
+                app:srcCompat="@drawable/imgmsn" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -233,8 +270,9 @@
         android:layout_marginBottom="2dp"
         android:text="Features"
         android:textColor="@color/green"
-        android:textSize="24sp"
         android:textStyle="normal"
+        android:textSize="24sp"
+
         app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.146"
