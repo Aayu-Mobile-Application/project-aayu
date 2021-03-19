@@ -9,12 +9,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
-    private Button mainMenuScan, mainMenuMap;
+    //private Button mainMenuScan, mainMenuMap;
 
     //scan button
-    ImageView scnBtn;
+     ImageView scnBtn;
     //map btn
-    ImageView mapBtn;
+     ImageView mapBtn;
+    //quiz btn
+     ImageView quizBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         scnBtn = findViewById(R.id.scan);
         //getByBtnId
         mapBtn = findViewById(R.id.map);
+        //getByBtnId
+        quizBtn = findViewById(R.id.quizbtn);
 
         //set intent from main to scan
         scnBtn.setOnClickListener(new View.OnClickListener() {
@@ -34,11 +38,20 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        //set intent from main to scan
+        //set intent from main to map
         mapBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(),MapScreen.class);
+                startActivity(i);
+            }
+        });
+
+        //set intent from main to quiz
+        quizBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(),AppQuiz.class);
                 startActivity(i);
             }
         });
@@ -67,8 +80,6 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, CameraScan.class);
         startActivity(intent);
-
-
     }
 
 }

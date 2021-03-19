@@ -20,7 +20,7 @@ public class AppLogin extends AppCompatActivity {
         loginBtn = findViewById(R.id.loginBtn);
 
 
-        //set intent from main to scan
+        //set intent from login to main
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

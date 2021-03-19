@@ -15,7 +15,8 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
 
     <application
@@ -24,10 +25,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.Aayu">
-
-
+        android:theme="@style/Theme.Aayu"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".AppQuiz"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -55,8 +55,6 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".ScanResults" />
         <activity android:name=".LanguageSelector" />
-
-
     </application>
 
 </manifest>

@@ -145,7 +145,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/map" />
 
             <ImageView
-                android:id="@+id/imageView7"
+                android:id="@+id/quizbtn"
                 android:layout_width="111dp"
                 android:layout_height="86dp"
                 android:layout_marginTop="48dp"
@@ -164,7 +164,7 @@
                 android:layout_marginEnd="56dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/imageView7"
+                app:layout_constraintStart_toEndOf="@+id/quizbtn"
                 app:layout_constraintTop_toBottomOf="@+id/Map"
                 app:srcCompat="@drawable/help" />
 
@@ -180,7 +180,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.199"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+                app:layout_constraintTop_toBottomOf="@+id/quizbtn" />
 
             <TextView
                 android:id="@+id/textView8"
