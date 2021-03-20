@@ -53,6 +53,8 @@ public class AppLogin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                signIn();
+
             }
         });
     }
@@ -79,8 +81,30 @@ public class AppLogin extends AppCompatActivity {
             GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
             if (acct != null) {
 
-              
+                //get details from the google account
+                //name
+                String personName = acct.getDisplayName();
+
+                //person name of the user
+                String personGivenName = acct.getGivenName();
+
+                //family name
+                String personFamilyName = acct.getFamilyName();
+
+                //email of the user
+                String personEmail = acct.getEmail();
+
+                //id of account
+                String personId = acct.getId();
+
+                // image of the user
+                Uri personPhoto = acct.getPhotoUrl();
+
+                Toast.makeText(this, "Name: "+personName, Toast.LENGTH_SHORT).show();
+
             }
+            Intent i = new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(i);
 
             //exception
         } catch (ApiException e) {
