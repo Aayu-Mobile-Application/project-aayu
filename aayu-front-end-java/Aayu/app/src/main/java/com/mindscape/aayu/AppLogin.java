@@ -103,12 +103,13 @@ public class AppLogin extends AppCompatActivity {
                 Toast.makeText(this, "Name: "+personName, Toast.LENGTH_SHORT).show();
 
             }
+
             Intent i = new Intent(getApplicationContext(),MainActivity.class);
             startActivity(i);
-
             //exception
         } catch (ApiException e) {
-
+            Intent i = new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(i);
             Log.d("Message" , e.toString());
         }
 
