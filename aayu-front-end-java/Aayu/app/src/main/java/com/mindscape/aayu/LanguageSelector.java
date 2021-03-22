@@ -12,7 +12,6 @@ import android.widget.Button;
 public class LanguageSelector extends AppCompatActivity {
 
     private Button english, sinhala, tamil;
-    private Bitmap imageBitmap;
     private int leafType;
 
 
@@ -23,7 +22,7 @@ public class LanguageSelector extends AppCompatActivity {
         english = (Button) findViewById(R.id.language_english);
         sinhala = (Button) findViewById(R.id.language_sinhala);
         tamil = (Button) findViewById(R.id.language_tamil);
-        imageBitmap = getIntent().getParcelableExtra("scannedImage");
+
         leafType=getIntent().getIntExtra("leafType",0);
         english.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,10 +53,7 @@ public class LanguageSelector extends AppCompatActivity {
     }
 
     public void openScanResultsScreen(int lang_languageId) {
-
-
         Intent intent = new Intent(this, ScanResults.class);
-        intent.putExtra("scannedImage", imageBitmap);
         intent.putExtra("langId", lang_languageId);
         intent.putExtra("leafType", leafType);
         startActivity(intent);

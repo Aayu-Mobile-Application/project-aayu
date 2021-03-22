@@ -21,8 +21,8 @@ public class CameraScan extends AppCompatActivity {
     private Button openCameraButton, importImage, confirmImage;
     private ImageView imageView;
     private Bitmap imageBitmap;
-    private static final int REQUEST_IMAGE_CAPTURE = 101;
-    private static final int RESULT_LOAD_IMG = 100;
+    private static final int imageCaptureCode = 101;
+    private static final int imageLoadingCode = 100;
     private int leafType;
 
     @Override
@@ -63,7 +63,7 @@ public class CameraScan extends AppCompatActivity {
         Intent imageTakeIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         //*****important-make getPackageManager()) == null (convert != to ==) if you run this on a real device
         if (imageTakeIntent.resolveActivity(getPackageManager()) == null) {
-            startActivityForResult(imageTakeIntent, REQUEST_IMAGE_CAPTURE);
+            startActivityForResult(imageTakeIntent, imageCaptureCode);
         }
     }
 
@@ -79,7 +79,7 @@ public class CameraScan extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if(requestCode==101){
-            if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode==RESULT_OK) {
+            if (requestCode == imageCaptureCode && resultCode==RESULT_OK) {
                 Bundle extras = data.getExtras();
                 imageBitmap = (Bitmap) extras.get("data");
                 imageView.setImageBitmap(imageBitmap);
@@ -108,13 +108,10 @@ public class CameraScan extends AppCompatActivity {
     public void openScanResultScreen(){
         if(imageBitmap!=null){
             Intent intent = new Intent(this,LanguageSelector.class);
-            intent.putExtra("scannedImage", imageBitmap);
+            Global.img=imageBitmap;
             intent.putExtra("leafType", leafType);
-            try {
                 startActivity(intent);
-            }catch(RuntimeException e){
-                System.out.println("file too large");
-            }
+
 
         }
 

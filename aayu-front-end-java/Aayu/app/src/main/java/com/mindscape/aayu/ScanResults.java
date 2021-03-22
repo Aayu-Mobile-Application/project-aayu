@@ -31,7 +31,7 @@ public class ScanResults extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_results);
-        scannedImage = getIntent().getParcelableExtra("scannedImage");
+scannedImage=Global.img;
         languageId = getIntent().getIntExtra("langId", 2);
         leafType = getIntent().getIntExtra("leafType", 0);
         imageView = (ImageView) findViewById(R.id.scanned_imageView);

@@ -51,18 +51,18 @@ public class ScanResultHandler extends AsyncTask {
 
             }
             stringArray.add(data);
-            JSONArray JA = new JSONArray(data);
-            for (int i = 0; i < JA.length(); i++) {
-                JSONObject JO = (JSONObject) JA.get(i);
-                jsonPlantId = JO.get("idOfPlant").toString();
+            JSONArray jsonArray = new JSONArray(data);
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = (JSONObject) jsonArray.get(i);
+                jsonPlantId = jsonObject.get("idOfPlant").toString();
                 if (plantId == Integer.parseInt(jsonPlantId)) {
-                    scientificName = JO.get("scientificName").toString();
-                    description = JO.get("description").toString();
-                    treatments = JO.get("treatments").toString();
-                    localName = JO.get("localName").toString();
-                    familyName = JO.get("familyName").toString();
-                    plantStatus = JO.get("statusOfPlant").toString();
-                    similarPlants = JO.get("similarPlants").toString();
+                    scientificName = jsonObject.get("scientificName").toString();
+                    description = jsonObject.get("description").toString();
+                    treatments = jsonObject.get("treatments").toString();
+                    localName = jsonObject.get("localName").toString();
+                    familyName = jsonObject.get("familyName").toString();
+                    plantStatus = jsonObject.get("statusOfPlant").toString();
+                    similarPlants = jsonObject.get("similarPlants").toString();
 
                     break;
                 }
