@@ -36,7 +36,7 @@ public class LeafType extends AppCompatActivity {
     }
     public void openImageSelector(int leafType){
         Intent intent = new Intent(this, CameraScan .class);
-        intent.putExtra("leafType", leafType);
+        Global.leafType=leafType;
         startActivity(intent);
 
     }

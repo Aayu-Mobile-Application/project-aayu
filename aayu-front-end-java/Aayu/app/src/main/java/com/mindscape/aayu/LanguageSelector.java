@@ -54,8 +54,7 @@ public class LanguageSelector extends AppCompatActivity {
 
     public void openScanResultsScreen(int lang_languageId) {
         Intent intent = new Intent(this, ScanResults.class);
-        intent.putExtra("langId", lang_languageId);
-        intent.putExtra("leafType", leafType);
+        Global.langId=lang_languageId;
         startActivity(intent);
     }
 }

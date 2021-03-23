@@ -32,8 +32,6 @@ public class ScanResults extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_results);
 scannedImage=Global.img;
-        languageId = getIntent().getIntExtra("langId", 2);
-        leafType = getIntent().getIntExtra("leafType", 0);
         imageView = (ImageView) findViewById(R.id.scanned_imageView);
         treatments = (TextView) findViewById(R.id.scan_treatments);
         familyName = (TextView) findViewById(R.id.scan_familyname);
@@ -48,9 +46,9 @@ scannedImage=Global.img;
         if (scannedImage != null) {
 
             imageView.setImageBitmap(scannedImage);
-            if (leafType == 1) {
+            if (Global.leafType == 1) {
                 AlexNet();
-            } else if (leafType == 2) {
+            } else if (Global.leafType  == 2) {
                 ResNet();
             }
         }
@@ -59,7 +57,7 @@ scannedImage=Global.img;
     }
 
     public void AlexNet() {
-
+        System.out.println("alex");
         scannedImage = Bitmap.createScaledBitmap(scannedImage,227,227,true);
 
         try {
@@ -107,8 +105,8 @@ scannedImage=Global.img;
     }
 
     public void ResNet() {
-        handlerExecution(3);
 
+        System.out.println("res");
     }
 
     public void handlerExecution(int plantIdNo) {
