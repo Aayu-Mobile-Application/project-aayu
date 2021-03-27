@@ -1,10 +1,19 @@
 package com.mindscape.aayu;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -18,20 +27,28 @@ import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
-public class ScanResults extends AppCompatActivity {
+import static androidx.constraintlayout.motion.widget.Debug.getLocation;
+
+public class ScanResults extends AppCompatActivity implements LocationListener {
 
     private Bitmap scannedImage;
     private ImageView imageView;
+    @SuppressLint("StaticFieldLeak")
     static TextView description, treatments, familyName, localName, plantStatus, similarPlants, scientificName;
+    @SuppressLint("StaticFieldLeak")
     static ProgressBar spinner;
-    static int leafType;
     static int languageId;
     static int index = 0;
+    private Button fetchLocation;
+    private LocationManager locationManager;
+    private static final String[] LOCATION_PERMS = {Manifest.permission.ACCESS_FINE_LOCATION};
+    private static final int LOCATION_REQUEST = 1340;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_results);
-scannedImage=Global.img;
+        scannedImage = Global.img;
         imageView = (ImageView) findViewById(R.id.scanned_imageView);
         treatments = (TextView) findViewById(R.id.scan_treatments);
         familyName = (TextView) findViewById(R.id.scan_familyname);
@@ -41,6 +58,13 @@ scannedImage=Global.img;
         similarPlants = (TextView) findViewById(R.id.scan_similar);
         description = (TextView) findViewById(R.id.scan_plantDescription);
         spinner = (ProgressBar) findViewById(R.id.progressBar1);
+        fetchLocation = (Button) findViewById(R.id.scan_fetchLocation);
+        fetchLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getLocation();
+            }
+        });
 
         spinner.setVisibility(View.GONE);
         if (scannedImage != null) {
@@ -48,7 +72,7 @@ scannedImage=Global.img;
             imageView.setImageBitmap(scannedImage);
             if (Global.leafType == 1) {
                 AlexNet();
-            } else if (Global.leafType  == 2) {
+            } else if (Global.leafType == 2) {
                 ResNet();
             }
         }
@@ -58,7 +82,7 @@ scannedImage=Global.img;
 
     public void AlexNet() {
         System.out.println("alex");
-        scannedImage = Bitmap.createScaledBitmap(scannedImage,227,227,true);
+        scannedImage = Bitmap.createScaledBitmap(scannedImage, 227, 227, true);
 
         try {
             AayuAlexnet model = AayuAlexnet.newInstance(getApplicationContext());
@@ -83,13 +107,12 @@ scannedImage=Global.img;
 
 
             // get the highest index value --> predicted plant
-            for (int i = 0; i < outputFeature0.getFloatArray().length; i++)
-            {
+            for (int i = 0; i < outputFeature0.getFloatArray().length; i++) {
                 if (max < outputFeature0.getFloatArray()[i]) {
                     max = outputFeature0.getFloatArray()[i];
-                    if (max >= 0.50){
+                    if (max >= 0.50) {
                         index = i;
-                    }else{
+                    } else {
                         index = -1;
                     }
 
@@ -115,5 +138,49 @@ scannedImage=Global.img;
         ScanResultHandler.handler_languageId = languageId;
         scanResultHandler.execute();
 
+    }
+
+    void getLocation() {
+        try {
+            if (canAccessLocation()) {
+                locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 10, 5, this);
+            } else {
+                requestPermissions(LOCATION_PERMS, LOCATION_REQUEST);
+            }
+
+        } catch (SecurityException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onLocationChanged(@NonNull Location location) {
+        //the API link relevant to the Fetch location method goes here
+        System.out.println(location.getLatitude() + " " + location.getLongitude());
+
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(@NonNull String provider) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(@NonNull String provider) {
+
+    }
+
+    private boolean canAccessLocation() {
+        return (hasPermission(Manifest.permission.ACCESS_FINE_LOCATION));
+    }
+
+    private boolean hasPermission(String perm) {
+        return (PackageManager.PERMISSION_GRANTED == checkSelfPermission(perm));
     }
 }
