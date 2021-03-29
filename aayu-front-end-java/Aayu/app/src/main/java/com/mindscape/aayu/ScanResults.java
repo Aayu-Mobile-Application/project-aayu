@@ -19,6 +19,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.mindscape.aayu.ml.AayuAlexnet;
+import com.mindscape.aayu.ml.AlexnetAayuModel;
 
 import org.tensorflow.lite.DataType;
 import org.tensorflow.lite.support.image.TensorImage;
@@ -82,10 +83,10 @@ public class ScanResults extends AppCompatActivity implements LocationListener {
 
     public void AlexNet() {
         System.out.println("alex");
-        scannedImage = Bitmap.createScaledBitmap(scannedImage, 227, 227, true);
+        scannedImage = Bitmap.createScaledBitmap(scannedImage, 224, 224, true);
 
         try {
-            AayuAlexnet model = AayuAlexnet.newInstance(getApplicationContext());
+            AlexnetAayuModel model = AlexnetAayuModel.newInstance(getApplicationContext());
 
             TensorImage tensorImage = new TensorImage(DataType.FLOAT32);
             tensorImage.load(scannedImage);
@@ -93,11 +94,11 @@ public class ScanResults extends AppCompatActivity implements LocationListener {
             ByteBuffer byteBuffer = tensorImage.getBuffer();
 
             // Creates inputs for reference.
-            TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 227, 227, 3}, DataType.FLOAT32);
+            TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 224, 224, 3}, DataType.FLOAT32);
             inputFeature0.loadBuffer(byteBuffer);
 
             // Runs model inference and gets result.
-            AayuAlexnet.Outputs outputs = model.process(inputFeature0);
+            AlexnetAayuModel.Outputs outputs = model.process(inputFeature0);
             TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
 
             // Releases model resources if no longer used.
@@ -105,13 +106,17 @@ public class ScanResults extends AppCompatActivity implements LocationListener {
 
             float max = outputFeature0.getFloatArray()[0];
 
+            for (int i = 0; i < outputFeature0.getFloatArray().length; i++){
+                System.out.println(" " + outputFeature0.getFloatArray()[i]);
+            }
 
             // get the highest index value --> predicted plant
             for (int i = 0; i < outputFeature0.getFloatArray().length; i++) {
                 if (max < outputFeature0.getFloatArray()[i]) {
                     max = outputFeature0.getFloatArray()[i];
-                    if (max >= 0.50) {
+                    if (max >= 0.50 && max <= 1.0) {
                         index = i;
+                        System.out.println("Predicted Accuracy: " + outputFeature0.getFloatArray()[index]);
                     } else {
                         index = -1;
                     }
