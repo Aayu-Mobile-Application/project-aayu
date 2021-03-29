@@ -12,13 +12,15 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.mindscape.aayu.ml.AayuAlexnet;
+//import com.mindscape.aayu.ml.AayuAlexnet;
+import com.mindscape.aayu.ml.AayuResnet;
 import com.mindscape.aayu.ml.AlexnetAayuModel;
 
 import org.tensorflow.lite.DataType;
@@ -134,7 +136,51 @@ public class ScanResults extends AppCompatActivity implements LocationListener {
 
     public void ResNet() {
 
-        System.out.println("res");
+        scannedImage = Bitmap.createScaledBitmap(scannedImage,224,224,true);
+        try {
+            AayuResnet model = AayuResnet.newInstance(getApplicationContext());
+            TensorImage tensorImage = new TensorImage(DataType.FLOAT32);
+            tensorImage.load(scannedImage);
+
+            ByteBuffer byteBuffer = tensorImage.getBuffer();
+            // Creates inputs for reference.
+            TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 224, 224, 3}, DataType.FLOAT32);
+            inputFeature0.loadBuffer(byteBuffer);
+
+            // Runs model inference and gets result.
+            AayuResnet.Outputs outputs = model.process(inputFeature0);
+            TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
+
+            // Releases model resources if no longer used.
+            model.close();
+
+            float max = outputFeature0.getFloatArray()[0];
+
+            for (int i = 0; i < outputFeature0.getFloatArray().length; i++)
+            {
+                // System.out.print("hii"+outputFeature0.getFloatArray()[i]);
+                Log.d("array list" , String.valueOf(outputFeature0.getFloatArray()[i]));
+            }
+
+            for (int i = 0; i < outputFeature0.getFloatArray().length; i++)
+            {
+                if (max < outputFeature0.getFloatArray()[i]) {
+                    max = outputFeature0.getFloatArray()[i];
+                    //  if (max >= 0.50){
+                    index = i;
+                    System.out.println("index value: "+index);
+                    //   }else{
+                    //      index = -1;
+                    // }
+
+                }
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        handlerExecution(index);
+
     }
 
     public void handlerExecution(int plantIdNo) {
