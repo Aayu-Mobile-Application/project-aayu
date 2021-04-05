@@ -2,12 +2,14 @@ package com.mindscape.aayu;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -28,7 +30,6 @@ import java.net.URL;
 public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private MapScreen map;
     private Button searchButton;
     private EditText searchInput;
     private ProgressBar spinner;
@@ -54,6 +55,8 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
                 plantName = searchInput.getText().toString();
                 if (!plantName.equals("")) {
                     setUpMap(plantName);
+                }else{
+                    //TODO
                 }
 
 

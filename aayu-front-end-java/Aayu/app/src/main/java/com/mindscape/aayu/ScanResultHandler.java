@@ -72,6 +72,7 @@ public class ScanResultHandler extends AsyncTask {
 
         } catch (JSONException | IOException e) {
             e.printStackTrace();
+            //TODO-Alert
         }
         return null;
     }

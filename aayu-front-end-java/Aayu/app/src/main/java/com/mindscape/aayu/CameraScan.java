@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -97,7 +98,7 @@ public class CameraScan extends AppCompatActivity {
                 }
 
             }else {
-                Log.d("Error","permission not granted");
+                Toast.makeText(this,"No Image selected",Toast.LENGTH_SHORT).show();
             }
 
         }
@@ -113,6 +114,8 @@ public class CameraScan extends AppCompatActivity {
                 startActivity(intent);
 
 
+        }else{
+            Toast.makeText(this,"Please select a Image",Toast.LENGTH_SHORT).show();
         }
 
     }

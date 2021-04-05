@@ -6,36 +6,46 @@
     android:layout_height="match_parent"
     tools:context=".LanguageSelector">
 
-    <Button
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/language_english"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="119dp"
+        android:layout_height="57dp"
         android:text="English"
-        app:layout_constraintBottom_toTopOf="@+id/language_sinhala"
+        app:cornerRadius="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.802" />
+        app:layout_constraintVertical_bias="0.363"
+        tools:ignore="MissingConstraints" />
 
-    <Button
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/language_sinhala"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
-        android:text="සිංහල "
-        app:layout_constraintBottom_toTopOf="@+id/language_tamil"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/language_tamil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="248dp"
-        android:text="தமிழ்"
+        android:layout_width="119dp"
+        android:layout_height="57dp"
+        android:text="සිංහල"
+        app:cornerRadius="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/language_tamil"
+        android:layout_width="119dp"
+        android:layout_height="57dp"
+        android:text="தமிழ்"
+        app:cornerRadius="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.642"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView3"
@@ -50,5 +60,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.13" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="716dp"
+        android:layout_height="285dp"
+        android:rotation="8"
+        android:rotationX="8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/language_bg"
+        tools:srcCompat="@drawable/language_bg" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
