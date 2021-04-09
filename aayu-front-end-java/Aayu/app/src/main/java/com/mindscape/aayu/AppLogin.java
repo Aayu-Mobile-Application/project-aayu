@@ -108,7 +108,8 @@ public class AppLogin extends AppCompatActivity {
             startActivity(i);
             //exception
         } catch (ApiException e) {
-
+            Intent i = new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(i);
             Log.d("Message" , e.toString());
         }
 
