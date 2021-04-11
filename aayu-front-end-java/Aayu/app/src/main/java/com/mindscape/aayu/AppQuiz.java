@@ -38,16 +38,16 @@ public class AppQuiz extends AppCompatActivity {
 
     String dataForQuiz[][] = {
         //{"Question",rightAnswer","answer1","answer2","answer3"}
-            {"question1","Mango","Orange","Arjun","Jatropa"},
-            {"question2","Orange","Orange","Arjun","Jatropa"},
-            {"question3","Arjun","Jatropa","Mango","Jatropa"},
-            {"question4","Arjun","Orange","Jatropa","Mango"},
-            {"question5","Arjun","Orange","Jatropa","Mango"},
-            {"question6","Arjun","Orange","Jatropa","Mango"},
-            {"question7","Arjun","Orange","Jatropa","Mango"},
-            {"question8","Arjun","Orange","Jatropa","Mango"},
-            {"question9","Arjun","Orange","Jatropa","Mango"},
-            {"question10","Arjun","Orange","Jatropa","Mango"},
+            {"What is the scientific name of Jew Plum which is locally known as Ambarella ?","Spondias dulcis","Abroma augusta","Uraria picta","Nypa fruiticans"},
+            {"Which plant is known to be the Mother of Medicine ?","Holy basil","Basil","Arjun","Jatropa"},
+            {"Out of below, Which part of Aralu plant is used for treatments ?","Pericap of fruit","Barks","Roots","Flowers"},
+            {"For which type of treatments, Asamodagam is not used for ?","Headache","Asthma","Hiccough","Dysentery"},
+            {"Which parts of the plant Gas Nivithi (local name) is used for treatments ?","Roots","Flowers","Stem","Fruit"},
+            {"What is the local name of Zingiber officinale ? ","Inguru","Kaha","Koththamalli","Helamba"},
+            {"What is the edible part in the plant, Welmee ?","Root","Stem","Fruit","Flowers"},
+            {"Which is not a treatment type where Sesame seeds are not used for?","Headache","Burns","Wounds","Cystitis"},
+            {"Which is a edible plant in the china rose plant ?","Flowers","Stem","Bark","Roots"},
+            {"What is the local name of Munronia pinnata ?","Bin kohomba","Belipatta","Akkapana","Bimpol"},
     };
 
     @Override
@@ -82,7 +82,7 @@ public class AppQuiz extends AppCompatActivity {
     public void loadTheNextQuestion(){
 
         //adding up the question view
-         cntLbl.setText("Question" + countQuestion);
+         cntLbl.setText("Question " + countQuestion);
 
          //randomizing for the size of array
         Random random  = new Random();
