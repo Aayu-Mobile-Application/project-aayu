@@ -6,59 +6,80 @@
     android:layout_height="match_parent"
     tools:context=".LeafType">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutHeader"
+        android:layout_width="413dp"
+        android:layout_height="286dp"
+        android:background="@drawable/header_background"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!--        quiz head-->
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Ayu Scan"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.09"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="350dp"
+            android:layout_height="218dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView10"
+            app:srcCompat="@drawable/imagscn4" />
+
+        <!--        quiz  view-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/healthy"
-        android:layout_width="119dp"
-        android:layout_height="57dp"
-        android:text="Healthy"
+        android:layout_width="167dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="56dp"
+        android:text="Scan Healthy Plant"
         app:cornerRadius="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.385"
+        app:layout_constraintTop_toBottomOf="@+id/layoutHeader"
         tools:ignore="MissingConstraints" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/deceased"
-        android:layout_width="119dp"
-        android:layout_height="57dp"
-        android:text="deceased"
+        android:layout_width="172dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="70dp"
+        android:text="Scan deceased plant"
         app:cornerRadius="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.544"
+        app:layout_constraintTop_toBottomOf="@+id/healthy"
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="423dp"
-        android:layout_height="223dp"
-        android:contentDescription="TODO"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/imageView12"
+        android:layout_width="405dp"
+        android:layout_height="489dp"
+        android:layout_marginTop="115dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/selectleaf_image"
-        tools:srcCompat="@drawable/selectleaf_image" />
+        app:layout_constraintTop_toBottomOf="@+id/healthy"
+        app:srcCompat="@drawable/scanimg7" />
 
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="535dp"
-        android:layout_height="886dp"
-        android:layout_marginTop="160dp"
-        android:contentDescription="TODO"
-        android:rotation="-180"
-        android:scaleType="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.258"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9"
-        app:srcCompat="@drawable/selectleaf_image"
-        tools:srcCompat="@drawable/selectleaf_image" />
 </androidx.constraintlayout.widget.ConstraintLayout>
