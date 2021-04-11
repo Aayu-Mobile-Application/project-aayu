@@ -9,9 +9,9 @@ import java.util.List;
 
 public interface AayuInterface {
     // add location to the database
-    void addLocation(int locationId, double longitude, double latitude, String userName, String plantName);
+    void addLocation(Map newLocation);
     // get location details
-    List<Map> viewLocation();
+    List<Map> viewLocation(String plantLocationName);
     // add quiz score
     void addScore(int quizId, int score, String userName);
     // view quiz score
@@ -21,6 +21,6 @@ public interface AayuInterface {
     // view user details
     List<User> viewUser();
     // view plant details
-    List<Plant> viewPlant();
+    List<Plant> viewEnglishPlantData();
 
 }

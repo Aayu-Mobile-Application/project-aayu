@@ -12,13 +12,6 @@ public class AayuApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AayuApplication.class, args);
-		// create database object
-		EnglishPlantDatabaseLoad databaseLoad = new EnglishPlantDatabaseLoad();
-		// load english plant details
-		databaseLoad.plantDataLoad();
-		MapDatabaseLoad mapDatabaseLoad = new MapDatabaseLoad();
-		// load location details
-		mapDatabaseLoad.locationDatasetLoad();
 	}
 
 }

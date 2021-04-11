@@ -6,9 +6,7 @@ import com.project.aayu.model.Plant;
 import com.project.aayu.model.Quiz;
 import com.project.aayu.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -20,9 +18,14 @@ public class AayuAPI {
     @Autowired
     private AayuManager aayuManager;
 
-    @GetMapping("/getLocation")
-    public List<Map> getLocationDetails(){
-        return aayuManager.viewLocation();
+    @GetMapping("/getLocation/{location}")
+    public List<Map> getLocationDetails(@PathVariable("location") String location){
+        return aayuManager.viewLocation(location);
+    }
+
+    @PostMapping("/addLocation/add")
+    public void addNewLocation(@RequestBody Map newLocation){
+        aayuManager.addLocation(newLocation);
     }
 
     @GetMapping("/getUser")

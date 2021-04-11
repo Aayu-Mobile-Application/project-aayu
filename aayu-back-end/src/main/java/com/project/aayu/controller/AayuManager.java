@@ -1,11 +1,13 @@
 package com.project.aayu.controller;
 
+import com.project.aayu.AayuApplication;
 import com.project.aayu.database.EnglishPlantDatabaseLoad;
 import com.project.aayu.database.MapDatabaseLoad;
 import com.project.aayu.model.Map;
 import com.project.aayu.model.Plant;
 import com.project.aayu.model.Quiz;
 import com.project.aayu.model.User;
+import org.springframework.boot.SpringApplication;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -14,6 +16,17 @@ import java.util.List;
 @Service
 public class AayuManager implements AayuInterface{
 
+    // return english data set
+
+    public AayuManager(){
+        EnglishPlantDatabaseLoad databaseLoad = new EnglishPlantDatabaseLoad();
+        MapDatabaseLoad mapDatabaseLoad = new MapDatabaseLoad();
+
+        databaseLoad.plantDataLoad();
+        mapDatabaseLoad.locationDatasetLoad();
+    }
+
+    @Override
     public List<Plant> viewEnglishPlantData() {
 
         List<Plant> englishDataSet = new ArrayList<>();
@@ -25,26 +38,31 @@ public class AayuManager implements AayuInterface{
     }
 
 
-    //add location
+    //add location details
     @Override
-    public void addLocation(int locationId, double longitude, double latitude, String userName, String plantName) {
-        Map newLocation = new Map(locationId, plantName,latitude,longitude,userName);
-        //DynamoDataLoad.locationDB.add(newLocation);
+    public void addLocation(Map newLocation) {
+        MapDatabaseLoad mapDatabaseLoad = new MapDatabaseLoad();
+        mapDatabaseLoad.newLocationDataset(newLocation.getLocationId(),newLocation.getPlantName(),newLocation.getLatitude(),newLocation.getLongitude(),newLocation.getUser());
+
     }
 
-    //view location
+    //view location details
     @Override
-    public List<Map> viewLocation() {
-
+    public List<Map> viewLocation(String plantLocationName) {
         List<Map> locationDataSet = new ArrayList<>();
 
         for (Map locationDB : MapDatabaseLoad.locationDatabase){
-            locationDataSet.add(locationDB);
+            // check plant is in the database
+            if (locationDB.getPlantName().equalsIgnoreCase(plantLocationName)) {
+                // add plant to the plant database
+                locationDataSet.add(locationDB);
+            }
         }
+
         return locationDataSet;
     }
 
-    //quiz
+    //add the quiz details
     @Override
     public void addScore(int quizId, int score, String userName) {
         Quiz newQuiz = new Quiz(quizId, userName, score);
@@ -68,10 +86,6 @@ public class AayuManager implements AayuInterface{
         return null;
     }
 
-    //view plant details
-    @Override
-    public List<Plant> viewPlant() {
-        return null;
-    }
+
     
 }
