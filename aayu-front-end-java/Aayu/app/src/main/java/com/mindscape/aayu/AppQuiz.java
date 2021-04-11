@@ -4,13 +4,13 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Random;
 
@@ -31,6 +31,7 @@ public class AppQuiz extends AppCompatActivity {
     private String correctAnswer;
     private int correctAnswerCount = 0;
     private int countQuestion = 1;
+    private int quizScore = 0;
 
     //initializing arrayList
     ArrayList<ArrayList<String>> questionArray = new ArrayList<>();
@@ -55,7 +56,7 @@ public class AppQuiz extends AppCompatActivity {
         setContentView(R.layout.activity_app_quiz);
 
         cntLbl = (TextView)findViewById(R.id.cntLbl);
-        quizLbl = (TextView)findViewById(R.id.quizLbl);
+        quizLbl = (TextView)findViewById(R.id.resultLbl);
         btnAnswer1 = (Button)findViewById(R.id.anwBtn1);
         btnAnswer2 = (Button)findViewById(R.id.anwBtn2);
         btnAnswer3 = (Button)findViewById(R.id.anwBtn3);
@@ -117,10 +118,11 @@ public class AppQuiz extends AppCompatActivity {
          if (textClickedBtn.equals(correctAnswer)){
              alertEffect = "Correct";
              correctAnswerCount++;
-             countQuestion++;
+             //quizScore++;
+             //countQuestion++;
          } else {
              alertEffect = "Wrong";
-             countQuestion++;
+             //countQuestion++;
          }
 
          //alert box
@@ -130,10 +132,12 @@ public class AppQuiz extends AppCompatActivity {
          buildAlertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
              @Override
              public void onClick(DialogInterface dialog, int which) {
-                 if (correctAnswerCount == questionCount){
-
+                 if (countQuestion == questionCount){
+                     Intent intentQuiz = new Intent(getApplicationContext(),QuizScore.class);
+                     intentQuiz.putExtra("CORRECT_ANSWS", correctAnswerCount);
+                     startActivity(intentQuiz);
                  }else{
-                     correctAnswerCount++;
+                     countQuestion++;
                      loadTheNextQuestion();
                  }
              }

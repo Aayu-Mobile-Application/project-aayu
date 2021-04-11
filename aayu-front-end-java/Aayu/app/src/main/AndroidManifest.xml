@@ -8,8 +8,7 @@
          location permissions for the "MyLocation" functionality.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <uses-feature
         android:name="android.hardware.Camera"
@@ -29,7 +28,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Aayu"
         android:usesCleartextTraffic="true">
-        <activity android:name=".AppQuiz"></activity>
+        <activity android:name=".QuizScore"></activity>
+        <activity android:name=".AppQuiz" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
