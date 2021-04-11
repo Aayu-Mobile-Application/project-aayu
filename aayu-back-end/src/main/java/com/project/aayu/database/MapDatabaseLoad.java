@@ -6,22 +6,23 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MapDatabaseLoad {
 
     public static List<Map> locationDatabase = new ArrayList<>();
+    File file;
+    FileWriter writer;
 
     public void locationDatasetLoad() {
 
         JSONParser jsonParser = new JSONParser();
 
-        try (InputStreamReader reader = new InputStreamReader(EnglishPlantDatabaseLoad.class.getResourceAsStream("/location-dataset.json"))) {
+        try (InputStreamReader reader = new InputStreamReader(MapDatabaseLoad.class.getResourceAsStream("/location-dataset.json"))) {
             // read the json file
             Object object = jsonParser.parse(reader);
             // put into an array
@@ -29,11 +30,7 @@ public class MapDatabaseLoad {
             // load the json data
             jsonPlantArray.forEach(location -> parseLocationObj((JSONObject) location));
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
+        } catch (ParseException | IOException e) {
             e.printStackTrace();
         }
 
@@ -54,4 +51,48 @@ public class MapDatabaseLoad {
 
 
     }
+
+    public void newLocationDataset(long locationId, String plantName, double latitude, double longitude, String user){
+
+        JSONParser jsonParser = new JSONParser();
+
+        try (InputStreamReader reader = new InputStreamReader(EnglishPlantDatabaseLoad.class.getResourceAsStream("/location-dataset.json"))) {
+            // read the json file
+            Object object = jsonParser.parse(reader);
+            // put into an array
+            JSONArray jsonPlantArray = (JSONArray) object;
+            //jsonPlantArray.add(object);
+
+            System.out.println(jsonPlantArray);
+            JSONObject obj = new JSONObject();
+
+            obj.put("locationId",locationId);
+            obj.put("plantName",plantName);
+            obj.put("latitude",latitude);
+            obj.put("longitude",longitude);
+            obj.put("user", user);
+
+            jsonPlantArray.add(obj);
+            System.out.println(jsonPlantArray);
+
+
+            URL resourceUrl = EnglishPlantDatabaseLoad.class.getResource("/location-dataset.json");
+            //System.out.println(resourceUrl);
+            file = new File(resourceUrl.toURI());
+            writer = new FileWriter(file);
+            writer.write(jsonPlantArray.toString());
+            writer.flush();
+            writer.close();
+            System.out.println(obj);
+        } catch (ParseException | IOException | URISyntaxException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+
+
+    }
+
 }
