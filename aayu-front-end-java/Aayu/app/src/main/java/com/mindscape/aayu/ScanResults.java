@@ -20,8 +20,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 //import com.mindscape.aayu.ml.AayuAlexnet;
-import com.mindscape.aayu.ml.AayuResnet;
+//import com.mindscape.aayu.ml.AayuResnet;
 import com.mindscape.aayu.ml.AlexnetAayuModel;
+import com.mindscape.aayu.ml.Resnetmodelfin;
 
 import org.tensorflow.lite.DataType;
 import org.tensorflow.lite.support.image.TensorImage;
@@ -138,7 +139,7 @@ public class ScanResults extends AppCompatActivity implements LocationListener {
 
         scannedImage = Bitmap.createScaledBitmap(scannedImage,224,224,true);
         try {
-            AayuResnet model = AayuResnet.newInstance(getApplicationContext());
+            Resnetmodelfin model = Resnetmodelfin.newInstance(getApplicationContext());
             TensorImage tensorImage = new TensorImage(DataType.FLOAT32);
             tensorImage.load(scannedImage);
 
@@ -148,7 +149,7 @@ public class ScanResults extends AppCompatActivity implements LocationListener {
             inputFeature0.loadBuffer(byteBuffer);
 
             // Runs model inference and gets result.
-            AayuResnet.Outputs outputs = model.process(inputFeature0);
+            Resnetmodelfin.Outputs outputs = model.process(inputFeature0);
             TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
 
             // Releases model resources if no longer used.
@@ -166,13 +167,24 @@ public class ScanResults extends AppCompatActivity implements LocationListener {
             {
                 if (max < outputFeature0.getFloatArray()[i]) {
                     max = outputFeature0.getFloatArray()[i];
-                    //  if (max >= 0.50){
-                    index = i;
-                    System.out.println("index value: "+index);
-                    //   }else{
-                    //      index = -1;
-                    // }
 
+                     // if (max >= 0.50){
+
+                    index = i;
+
+
+
+                      // }else {
+                         // index = -1;
+                  //   }
+
+                    System.out.println("index value: "+index);
+                    System.out.println("------------------------------------------");
+                    System.out.println("Guava - INDEX 1");
+                    System.out.println("Jamun - INDEX 2");
+                    System.out.println("Jatropha - INDEX 3");
+                    System.out.println("------------------------------------------");
+                    .
                 }
             }
 
