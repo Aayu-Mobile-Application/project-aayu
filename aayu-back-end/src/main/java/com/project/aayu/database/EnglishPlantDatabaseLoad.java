@@ -21,7 +21,7 @@ public class EnglishPlantDatabaseLoad {
 
     public static List<Plant> plantEnglishDatabase = new ArrayList<>();
 
-    public void plantDataLoad() {
+    public void EnglishPlantDatabaseLoad() {
 
         JSONParser jsonParser = new JSONParser();
 

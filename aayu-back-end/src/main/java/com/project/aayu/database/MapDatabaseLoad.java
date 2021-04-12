@@ -14,11 +14,11 @@ import java.util.List;
 
 public class MapDatabaseLoad {
 
-    public static List<Map> locationDatabase = new ArrayList<>();
+    private static List<Map> locationDatabase = new ArrayList<>();
     File file;
     FileWriter writer;
 
-    public void locationDatasetLoad() {
+    public List<Map> mapDatabaseLoad() {
 
         JSONParser jsonParser = new JSONParser();
 
@@ -27,6 +27,7 @@ public class MapDatabaseLoad {
             Object object = jsonParser.parse(reader);
             // put into an array
             JSONArray jsonPlantArray = (JSONArray) object;
+            locationDatabase.clear();
             // load the json data
             jsonPlantArray.forEach(location -> parseLocationObj((JSONObject) location));
 
@@ -34,6 +35,7 @@ public class MapDatabaseLoad {
             e.printStackTrace();
         }
 
+        return locationDatabase;
     }
 
     private static void parseLocationObj(JSONObject location){
@@ -84,6 +86,7 @@ public class MapDatabaseLoad {
             writer.flush();
             writer.close();
             System.out.println(obj);
+
         } catch (ParseException | IOException | URISyntaxException e) {
             e.printStackTrace();
         }
