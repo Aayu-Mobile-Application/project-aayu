@@ -4,7 +4,6 @@ import com.project.aayu.database.EnglishPlantDatabaseLoad;
 import com.project.aayu.database.MapDatabaseLoad;
 import com.project.aayu.model.Map;
 import com.project.aayu.model.Plant;
-import com.project.aayu.model.Quiz;
 import com.project.aayu.model.User;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +12,7 @@ import java.util.List;
 
 @Service
 public class AayuManager implements AayuInterface{
-    
+
     // create aayu manager constructor for load plant database
     public AayuManager(){
         EnglishPlantDatabaseLoad englishPlantDatabaseLoad = new EnglishPlantDatabaseLoad();
@@ -55,19 +54,6 @@ public class AayuManager implements AayuInterface{
 
         return locationDataSet;
     }
-
-    //add the quiz details
-    @Override
-    public void addScore(int quizId, int score, String userName) {
-        Quiz newQuiz = new Quiz(quizId, userName, score);
-        //quizDatabase.add(newQuiz);
-    }
-
-    //view score
-    @Override
-    public List<Quiz> viewScore() {
-        return null;
-   }
 
     //add user
     @Override
