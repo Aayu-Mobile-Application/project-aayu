@@ -2,6 +2,7 @@ package com.project.aayu.controller;
 
 import com.project.aayu.database.EnglishPlantDatabaseLoad;
 import com.project.aayu.database.MapDatabaseLoad;
+import com.project.aayu.database.SinhalaPlantDatabaseLoad;
 import com.project.aayu.model.Map;
 import com.project.aayu.model.Plant;
 import com.project.aayu.model.User;
@@ -29,6 +30,16 @@ public class AayuManager implements AayuInterface{
         return englishDataSet;
     }
 
+    //Aayu sinhala plant information
+    @Override
+    public List<Plant> viewSinhalaPlantData() {
+        List<Plant> sinhalaDataSet = new ArrayList<>();
+
+        for (Plant sinhalaData : SinhalaPlantDatabaseLoad.plantSinhalaDatabase){
+            sinhalaDataSet.add(sinhalaData);
+        }
+        return sinhalaDataSet;
+    }
 
     //add location details
     @Override

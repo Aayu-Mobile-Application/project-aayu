@@ -30,11 +30,16 @@ public class AayuAPI {
         return aayuManager.viewUser();
     }
 
+    //english-plant
     @GetMapping("/englishplant")
     public List<Plant> getPlantInformation() {
         return aayuManager.viewEnglishPlantData();
     }
 
-
+    //sinhala-plant
+    @GetMapping("/sinhalaplant")
+    public List<Plant> getPlantInformationSinhala() {
+        return aayuManager.viewSinhalaPlantData();
+    }
 
 }

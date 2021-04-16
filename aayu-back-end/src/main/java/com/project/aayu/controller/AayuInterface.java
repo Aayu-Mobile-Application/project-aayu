@@ -17,5 +17,7 @@ public interface AayuInterface {
     List<User> viewUser();
     // view plant details
     List<Plant> viewEnglishPlantData();
+    // view plant details sinhala
+    List<Plant> viewSinhalaPlantData();
 
 }
