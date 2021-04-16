@@ -42,4 +42,9 @@ public class AayuAPI {
         return aayuManager.viewSinhalaPlantData();
     }
 
+    //tamil-plant
+    @GetMapping("/tamilplant")
+    public List<Plant> getPlantInformationTamil() {
+        return aayuManager.viewTamilPlantData();
+    }
 }

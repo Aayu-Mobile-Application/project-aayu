@@ -15,9 +15,11 @@ public interface AayuInterface {
     void addNewUser(int userId, String userName, String userEmail);
     // view user details
     List<User> viewUser();
-    // view plant details
+    // view plant details - english
     List<Plant> viewEnglishPlantData();
-    // view plant details sinhala
+    // view plant details - sinhala
     List<Plant> viewSinhalaPlantData();
+    // view plant details - tamil
+    List<Plant> viewTamilPlantData();
 
 }
