@@ -1,0 +1,62 @@
+[
+  {
+     "idOfPlant":1,
+     "localName":"Arjun tree/White marudah",
+     "scientificName":"Terminalia arjuna",
+     "familyName":"Combretaceae",
+     "statusOfPlant":"Native",
+     "treatments":"Heart diseases,Fevers,Skin diseases,Obesity,Wounds,Bone fractures,Dysentery,Piles,Coughs,Leucorrhoea,Candida infections.",
+     "description":"A very large tree with a buttressed, spreading base and horizontally spreading branches. Leaves are simple, without stipules, 7.5-15 cm long, 4-7 cm wide; petioles are very short. Flowers in terminal panicles; No petals availble , honey is scented. An indehiscent drupe, 3.5-5 cm long, obovate-ovoid, endocarp fibrous and woody, dark brown; contains solitary seed.",
+     "similarPlants":"Neem Tree‌"
+  },
+  {
+     "idOfPlant":2,
+     "localName":"Lemon",
+     "scientificName":"Citrus limon",
+     "familyName":"Rutaceae",
+     "statusOfPlant":"Only Under Cultivation",
+     "treatments":"Loss of Appetite,Anaemia,Indigestions.",
+     "description":"Shrub or small tree, spiny. Leaf, flower buds are often reddish or purplish; petiole are narrowly winged. Fruit ovoid colors light to deep yellow; pulp greenish to yellowish; contains sour juice  and small seeds.",
+     "similarPlants":"‌Chebulic Myrobalan,Indian Gooseberry"
+  },
+  {
+     "idOfPlant":3,
+     "localName":"‌Guava",
+     "scientificName":"Psidium guajava",
+     "familyName":"Myrtaceae",
+     "statusOfPlant":"Native",
+     "treatments":"Diarrhoea,Dysentery,Sprains,Intestinal haemorrhages,Coughs,Pulmonary disorders,Swollen gums,Styptic,Wounds,Cerebral ailments,Nephritis,Cachexia,Rheumatism,Epilepsy,Cholera,Leucoderma patches.",
+     "description":"A small tree or shrub. Bark is grey and rust-brown with a bright yellow-green crownwith hanging leaves and twigs. Twigs are sharply angled or winged. Leaf lamina 4-10x2.5-6 cm; nerves 7-15 pairs; petiole 2-7 mm long. Flower diameter is 3 cm . Fruit exceeds diameter of 3 cm when ripen.",
+     "similarPlants":"‌Shrub,White marudah"
+  },
+  {
+     "idOfPlant":4,
+     "localName":"Jamun",
+     "scientificName":"Syzygium cumini",
+     "familyName":"Myrtaceae",
+     "statusOfPlant":"Native",
+     "treatments":"Diarrhoea,Dysentery,Ulcers,Spongy gums,Splenomegaly,Diabetes mellitus.",
+     "description":"Large shrub or canopy tree, About 25m tall. Contains slender twigs , terete, cream. Leaves are pale yellowish green with size of 6.5-11 x 2.5-5 cm. Cymes are 10 cm long, terminal or axillary.  Petal size is about 4 x 3 mm, white. Fruit size is about 12(-20) x 8(-14) mm.Turns purple when ripen.",
+     "similarPlants":"‌Guava,White marudah"
+  },
+  {
+     "idOfPlant":5,
+     "localName":"Jatropha",
+     "scientificName":"Jatropha curcas",
+     "familyName":"Euphorbiaceae",
+     "statusOfPlant":"Naturalized Exotic",
+     "treatments":"Nausea,Diabetes mellitus,Sciatica,Rheumatoid arthritis,Osteoarthritis.",
+     "description":"Shrub or small tree up to about 6 m tall. Leaves 5.5-14 (-18) cm long and wide, shallowly 5-lobed or lobes lacking. Stipules minute. Inflorescences subcorymbose, often paired, up to 12 cm long; peduncle up to 7 cm long; petals greenish-yellow. Capsule 2.5-3 x 2 cm. Seeds 1.7 x 1 cm compressed, black.",
+     "similarPlants":"‌Indian pennywort"
+  },
+  {
+     "idOfPlant":6,
+     "localName":"Mango",
+     "scientificName":"Mangifera indica",
+     "familyName":"Anacardiaceae",
+     "statusOfPlant":"Only Under Cultivation",
+     "treatments":"Helps to keep heart healthy,Purifies blood.",
+     "description":"Medium to large- sized tree with height of 8-30m, leaves are oblong- lanceolate, with size of 10-32 X 2-12 cm.Veins are prominent on lower face with tertiary nerves and reticulate veins. Young leaves are pendulous, purplish. Panicle size is within 6-40 cm, in general hairy. Sepals and Petals are ovoid- oblong and hairy. Yellow or purple veins. Fertile stamens as long as the corolla. Staminodes are very short. Fruits ovoid to ellipsoid, with oblique base, and size of 10-20 cm long.",
+     "similarPlants":"Neem tree‌"
+  }
+]
