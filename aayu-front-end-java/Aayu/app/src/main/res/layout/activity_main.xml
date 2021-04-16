@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/txtUname"
+            android:id="@+id/main_txtUname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="14dp"
@@ -41,7 +41,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtUname"
+            app:layout_constraintTop_toBottomOf="@+id/main_txtUname"
             app:srcCompat="@drawable/banner21"
             tools:srcCompat="@drawable/banner21" />
 

@@ -34,7 +34,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
     private EditText searchInput;
     private ProgressBar spinner;
     private static final String LOG_TAG = "ExampleApp";
-    private String SERVICE_URL = "https://api.mocki.io/v1/740e35e3";
+    private String SERVICE_URL = "https://mocki.io/v1/6b0cd774-42d4-49c8-897b-28c32112ebb4";
     private String plantName;
 
     @Override
@@ -150,7 +150,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
             JSONObject jsonObj = jsonArray.getJSONObject(i);
 
             mMap.addMarker(new MarkerOptions()
-                    .title(jsonObj.getString("title"))
+                    .title(jsonObj.getString("user"))
                     .position(new LatLng(
                             jsonObj.getDouble("latitude"), jsonObj.getDouble("longitude")
 

@@ -20,18 +20,23 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 
-
 import com.mindscape.aayu.ml.Resnetmodelfin;
 import com.mindscape.aayu.ml.Aayualexnet;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.tensorflow.lite.DataType;
 import org.tensorflow.lite.support.image.TensorImage;
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
 
+import java.io.DataOutputStream;
 import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.nio.ByteBuffer;
 
 import static androidx.constraintlayout.motion.widget.Debug.getLocation;
+import static com.mindscape.aayu.ScanResultHandler.sendData;
 
 public class ScanResults extends AppCompatActivity implements LocationListener {
 
@@ -47,6 +52,9 @@ public class ScanResults extends AppCompatActivity implements LocationListener {
     private LocationManager locationManager;
     private static final String[] LOCATION_PERMS = {Manifest.permission.ACCESS_FINE_LOCATION};
     private static final int LOCATION_REQUEST = 1340;
+    private double latitude;
+    private double longitude;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,8 +117,7 @@ public class ScanResults extends AppCompatActivity implements LocationListener {
 
             float max = outputFeature0.getFloatArray()[0];
 
-            for (int i = 0; i < outputFeature0.getFloatArray().length; i++)
-            {
+            for (int i = 0; i < outputFeature0.getFloatArray().length; i++) {
                 if (max < outputFeature0.getFloatArray()[i]) {
                     max = outputFeature0.getFloatArray()[i];
 
@@ -119,13 +126,12 @@ public class ScanResults extends AppCompatActivity implements LocationListener {
                     index = i;
 
 
-
                     // }else {
                     // index = -1;
                     //   }
 
-                    System.out.println("index value: "+index);
-        
+                    System.out.println("index value: " + index);
+
                 }
             }
 
@@ -139,7 +145,7 @@ public class ScanResults extends AppCompatActivity implements LocationListener {
 
     public void ResNet() {
 
-        scannedImage = Bitmap.createScaledBitmap(scannedImage,224,224,true);
+        scannedImage = Bitmap.createScaledBitmap(scannedImage, 224, 224, true);
         try {
             Resnetmodelfin model = Resnetmodelfin.newInstance(getApplicationContext());
             TensorImage tensorImage = new TensorImage(DataType.FLOAT32);
@@ -159,28 +165,25 @@ public class ScanResults extends AppCompatActivity implements LocationListener {
 
             float max = outputFeature0.getFloatArray()[0];
 
-            for (int i = 0; i < outputFeature0.getFloatArray().length; i++)
-            {
+            for (int i = 0; i < outputFeature0.getFloatArray().length; i++) {
                 // System.out.print("hii"+outputFeature0.getFloatArray()[i]);
-                Log.d("array list" , String.valueOf(outputFeature0.getFloatArray()[i]));
+                Log.d("array list", String.valueOf(outputFeature0.getFloatArray()[i]));
             }
 
-            for (int i = 0; i < outputFeature0.getFloatArray().length; i++)
-            {
+            for (int i = 0; i < outputFeature0.getFloatArray().length; i++) {
                 if (max < outputFeature0.getFloatArray()[i]) {
                     max = outputFeature0.getFloatArray()[i];
 
-                     // if (max >= 0.50){
+                    // if (max >= 0.50){
 
                     index = i;
 
 
+                    // }else {
+                    // index = -1;
+                    //   }
 
-                      // }else {
-                         // index = -1;
-                  //   }
-
-                    System.out.println("index value: "+index);
+                    System.out.println("index value: " + index);
                     System.out.println("------------------------------------------");
                     System.out.println("Guava - INDEX 1");
                     System.out.println("Jamun - INDEX 2");
@@ -222,7 +225,11 @@ public class ScanResults extends AppCompatActivity implements LocationListener {
     public void onLocationChanged(@NonNull Location location) {
         //the API link relevant to the Fetch location method goes here
         System.out.println(location.getLatitude() + " " + location.getLongitude());
-
+        latitude = location.getLatitude();
+        longitude = location.getLongitude();
+        System.out.println(Global.loggedName);
+        sendData(latitude, longitude);
+//
     }
 
     @Override
@@ -247,4 +254,8 @@ public class ScanResults extends AppCompatActivity implements LocationListener {
     private boolean hasPermission(String perm) {
         return (PackageManager.PERMISSION_GRANTED == checkSelfPermission(perm));
     }
+
+
+
+
 }

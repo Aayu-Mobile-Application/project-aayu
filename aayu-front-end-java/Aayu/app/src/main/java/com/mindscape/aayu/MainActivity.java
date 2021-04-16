@@ -2,11 +2,13 @@ package com.mindscape.aayu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     //private Button mainMenuScan, mainMenuMap;
@@ -17,7 +19,9 @@ public class MainActivity extends AppCompatActivity {
      ImageView mapBtn;
     //quiz btn
      ImageView quizBtn;
+     TextView name;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +33,9 @@ public class MainActivity extends AppCompatActivity {
         mapBtn = findViewById(R.id.map);
         //getByBtnId
         quizBtn = findViewById(R.id.quizbtn);
+        name=findViewById(R.id.main_txtUname);
 
+        name.setText("Hello "+Global.loggedName);
         //set intent from main to scan
         scnBtn.setOnClickListener(new View.OnClickListener() {
             @Override

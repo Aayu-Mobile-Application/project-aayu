@@ -1,6 +1,7 @@
 package com.mindscape.aayu;
 
 import android.os.AsyncTask;
+import android.util.Log;
 import android.view.View;
 
 import org.json.JSONArray;
@@ -8,12 +9,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class ScanResultHandler extends AsyncTask {
     String data = "";
@@ -21,7 +24,7 @@ public class ScanResultHandler extends AsyncTask {
     String jsonPlantId;
     String description;
     String treatments;
-    String localName;
+    static String localName;
     String familyName;
     String plantStatus;
     String similarPlants;
@@ -88,5 +91,53 @@ public class ScanResultHandler extends AsyncTask {
         ScanResults.localName.setText(localName);
         ScanResults.plantStatus.setText(plantStatus);
         ScanResults.similarPlants.setText(similarPlants);
+    }
+
+    static void sendData(double lat, double longt) {
+        Random rand = new Random();
+
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    URL url = new URL("https://aayu-backend-api.herokuapp.com/location/add");
+                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                    conn.setRequestMethod("POST");
+                    conn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+                    conn.setRequestProperty("Accept","application/json");
+                    conn.setDoOutput(true);
+                    conn.setDoInput(true);
+
+
+                    JSONObject jsonParam=new JSONObject();
+                    JSONArray array=new JSONArray();
+                    jsonParam.put("locationId",rand.nextInt(10000));
+                    jsonParam.put("plantName",localName);
+                    jsonParam.put("latitude",lat);
+                    jsonParam.put("longitude",longt);
+                    jsonParam.put("user",Global.loggedName);
+                    array.put(jsonParam);
+
+
+                    Log.i("JSON", array.toString());
+                    DataOutputStream os = new DataOutputStream(conn.getOutputStream());
+                    os.writeBytes(array.toString());
+
+                    os.flush();
+                    os.close();
+
+                    Log.i("STATUS", String.valueOf(conn.getResponseCode()));
+                    Log.i("MSG" , conn.getResponseMessage());
+
+                    conn.disconnect();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    //TODO error handling
+                }
+            }
+        });
+
+        thread.start();
+
     }
 }

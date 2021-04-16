@@ -99,12 +99,15 @@ public class AppLogin extends AppCompatActivity {
                 // image of the user
                 Uri personPhoto = acct.getPhotoUrl();
 
-                Toast.makeText(this, "Name: "+personName, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Name: "+personFamilyName, Toast.LENGTH_SHORT).show();
+                Global.loggedName=personName;
+
 
             }
 
             Intent i = new Intent(getApplicationContext(),MainActivity.class);
             startActivity(i);
+
             //exception
         } catch (ApiException e) {
             Intent i = new Intent(getApplicationContext(),MainActivity.class);
