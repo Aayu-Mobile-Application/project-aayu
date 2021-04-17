@@ -1,5 +1,6 @@
 package com.project.aayu.controller;
 
+import com.project.aayu.Repository.LocationRepository;
 import com.project.aayu.database.EnglishPlantDatabaseLoad;
 import com.project.aayu.database.MapDatabaseLoad;
 import com.project.aayu.database.SinhalaPlantDatabaseLoad;
@@ -7,6 +8,7 @@ import com.project.aayu.database.TamilPlantDatabaseLoad;
 import com.project.aayu.model.Map;
 import com.project.aayu.model.Plant;
 import com.project.aayu.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -14,6 +16,9 @@ import java.util.List;
 
 @Service
 public class AayuManager implements AayuInterface{
+
+    @Autowired
+    private LocationRepository locationRepository;
 
     // create aayu manager constructor for load plant database
     public AayuManager(){
@@ -59,8 +64,8 @@ public class AayuManager implements AayuInterface{
     //add location details
     @Override
     public void addLocation(Map newLocation) {
-        MapDatabaseLoad mapDatabaseLoad = new MapDatabaseLoad();
-        mapDatabaseLoad.newLocationDataset(newLocation.getLocationId(),newLocation.getPlantName(),newLocation.getLatitude(),newLocation.getLongitude(),newLocation.getUser());
+        Map newMap = new Map(newLocation.getLocationId(), newLocation.getPlantName(), newLocation.getLatitude(), newLocation.getLongitude(), newLocation.getUser());
+        locationRepository.save(newMap);
     }
 
     //view location details
@@ -70,7 +75,7 @@ public class AayuManager implements AayuInterface{
         List<Map> locationDataSet = new ArrayList<>();
         // create map database object
         MapDatabaseLoad mapDatabaseLoad = new MapDatabaseLoad();
-        for (Map locationDB : mapDatabaseLoad.mapDatabaseLoad()){
+        for (Map locationDB : locationRepository.findAll()){
             // check plant is in the database
             if (locationDB.getPlantName().equalsIgnoreCase(plantLocationName)) {
                 // add plant to the plant database
