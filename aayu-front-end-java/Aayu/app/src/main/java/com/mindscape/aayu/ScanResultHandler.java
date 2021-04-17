@@ -109,19 +109,18 @@ public class ScanResultHandler extends AsyncTask {
                     conn.setDoInput(true);
 
 
-                    JSONObject jsonParam=new JSONObject();
-                    JSONArray array=new JSONArray();
-                    jsonParam.put("locationId",rand.nextInt(10000));
-                    jsonParam.put("plantName",localName);
-                    jsonParam.put("latitude",lat);
-                    jsonParam.put("longitude",longt);
-                    jsonParam.put("user",Global.loggedName);
-                    array.put(jsonParam);
+                    JSONObject jsonObject=new JSONObject();
+                    jsonObject.put("locationId",rand.nextInt(10000));
+                    jsonObject.put("plantName",localName);
+                    jsonObject.put("latitude",lat);
+                    jsonObject.put("longitude",longt);
+                    jsonObject.put("user",Global.loggedName);
 
 
-                    Log.i("JSON", array.toString());
+
+                    Log.i("JSON", jsonObject.toString());
                     DataOutputStream os = new DataOutputStream(conn.getOutputStream());
-                    os.writeBytes(array.toString());
+                    os.writeBytes(jsonObject.toString());
 
                     os.flush();
                     os.close();
