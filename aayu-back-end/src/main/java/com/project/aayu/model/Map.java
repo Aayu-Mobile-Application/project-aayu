@@ -1,7 +1,12 @@
 package com.project.aayu.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "map")
 public class Map {
 
+    @Id
     private long locationId;
     private String plantName;
     private double latitude;
