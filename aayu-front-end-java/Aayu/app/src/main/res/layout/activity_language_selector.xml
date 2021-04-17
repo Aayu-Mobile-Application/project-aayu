@@ -11,13 +11,12 @@
         android:id="@+id/language_english"
         android:layout_width="119dp"
         android:layout_height="57dp"
+        android:layout_marginTop="72dp"
         android:text="English"
         app:cornerRadius="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.363"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
         tools:ignore="MissingConstraints" />
 
 
@@ -25,53 +24,47 @@
         android:id="@+id/language_sinhala"
         android:layout_width="119dp"
         android:layout_height="57dp"
+        android:layout_marginTop="36dp"
         android:text="සිංහල"
         app:cornerRadius="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/language_english"
         tools:ignore="MissingConstraints" />
-
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/language_tamil"
         android:layout_width="119dp"
         android:layout_height="57dp"
+        android:layout_marginTop="36dp"
         android:text="தமிழ்"
         app:cornerRadius="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.642"
+        app:layout_constraintTop_toBottomOf="@+id/language_sinhala"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
         android:text="Please Select your Language"
+        android:textColor="#009688"
         android:textSize="22dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.13" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="716dp"
-        android:layout_height="285dp"
-        android:rotation="8"
-        android:rotationX="8"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/imageView10"
+        android:layout_width="334dp"
+        android:layout_height="307dp"
+        android:layout_marginTop="46dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/language_bg"
-        tools:srcCompat="@drawable/language_bg" />
+        app:layout_constraintTop_toBottomOf="@+id/language_tamil"
+        app:srcCompat="@drawable/languageselect" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

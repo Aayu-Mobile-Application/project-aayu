@@ -127,7 +127,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Treatments"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
@@ -136,8 +136,8 @@
 
     <TextView
         android:id="@+id/scan_treatments"
-        android:layout_width="337dp"
-        android:layout_height="108dp"
+        android:layout_width="341dp"
+        android:layout_height="124dp"
         android:layout_marginTop="16dp"
         android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -150,7 +150,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Similar Plants"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
@@ -161,13 +161,23 @@
         android:id="@+id/scan_fetchLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="Add Location"
         app:cornerRadius="100dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView14"
         app:layout_constraintTop_toBottomOf="@+id/scan_similar"
         tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="77dp"
+        android:layout_height="52dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.29"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scan_similar"
+        app:srcCompat="@drawable/location" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
