@@ -20,8 +20,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 
+import com.mindscape.aayu.ml.Alexnetmodelaayu;
 import com.mindscape.aayu.ml.Resnetmodelfin;
-import com.mindscape.aayu.ml.Aayualexnet;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -97,7 +98,7 @@ public class ScanResults extends AppCompatActivity implements LocationListener {
         scannedImage = Bitmap.createScaledBitmap(scannedImage, 224, 224, true);
 
         try {
-            Aayualexnet model = Aayualexnet.newInstance(getApplicationContext());
+            Alexnetmodelaayu model = Alexnetmodelaayu.newInstance(getApplicationContext());
 
             TensorImage tensorImage = new TensorImage(DataType.FLOAT32);
             tensorImage.load(scannedImage);
@@ -109,7 +110,7 @@ public class ScanResults extends AppCompatActivity implements LocationListener {
             inputFeature0.loadBuffer(byteBuffer);
 
             // Runs model inference and gets result.
-            Aayualexnet.Outputs outputs = model.process(inputFeature0);
+            Alexnetmodelaayu.Outputs outputs = model.process(inputFeature0);
             TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
 
             // Releases model resources if no longer used.
@@ -118,12 +119,18 @@ public class ScanResults extends AppCompatActivity implements LocationListener {
             float max = outputFeature0.getFloatArray()[0];
 
             for (int i = 0; i < outputFeature0.getFloatArray().length; i++) {
+                // System.out.print("hii"+outputFeature0.getFloatArray()[i]);
+                Log.d
+                        ("array list", String.valueOf(outputFeature0.getFloatArray()[i]));
+            }
+
+            for (int i = 0; i < outputFeature0.getFloatArray().length; i++) {
                 if (max < outputFeature0.getFloatArray()[i]) {
                     max = outputFeature0.getFloatArray()[i];
 
                     // if (max >= 0.50){
 
-                    index = i;
+                    index = i+5;
 
 
                     // }else {
@@ -132,8 +139,16 @@ public class ScanResults extends AppCompatActivity implements LocationListener {
 
                     System.out.println("index value: " + index);
 
+
+                     System.out.println("Jatropha - 6");
+                     System.out.println("Kohomba - 8");
+                     System.out.println("K-Dehi - 7");
+                     System.out.println("Pennywort - 9");
+                     System.out.println("Pepper - 10");
+
                 }
             }
+
 
         } catch (IOException e) {
             e.printStackTrace();
