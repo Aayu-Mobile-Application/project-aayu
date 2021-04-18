@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.location.Location;
@@ -18,6 +19,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.mindscape.aayu.ml.Alexnetmodelaayu;
@@ -55,7 +57,6 @@ public class ScanResults extends AppCompatActivity  {
     private static final int LOCATION_REQUEST = 1340;
     private double latitude;
     private double longitude;
-    Location location;
 
 
     @Override
@@ -84,7 +85,12 @@ public class ScanResults extends AppCompatActivity  {
         fetchLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getLocation();
+
+                    getLocation();
+                    Toast.makeText(ScanResults.this,"Successfully Added",Toast.LENGTH_LONG).show();
+
+
+
             }
         });
 
@@ -236,7 +242,10 @@ public class ScanResults extends AppCompatActivity  {
     }
 
 
-
-
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this, CameraScan.class));
+        finish();
+    }
 }

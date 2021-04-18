@@ -3,6 +3,7 @@ package com.mindscape.aayu;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,7 +37,6 @@ public class ScanResultHandler extends AsyncTask {
         //getting scanned plant details from the API
         try {
             ScanResults.spinner.setVisibility(View.VISIBLE);
-            ArrayList<String> stringArray = new ArrayList<String>();
             URL url = new URL("http://3.19.27.17:8090/englishplant");
             if (Global.langId == 2) {
                 //sinhala link
@@ -56,7 +56,6 @@ public class ScanResultHandler extends AsyncTask {
                 data = data + line;
 
             }
-            stringArray.add(data);
             JSONArray jsonArray = new JSONArray(data);
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = (JSONObject) jsonArray.get(i);
@@ -71,6 +70,8 @@ public class ScanResultHandler extends AsyncTask {
                     similarPlants = jsonObject.get("similarPlants").toString();
 
                     break;
+                }else {
+                    scientificName="";
                 }
             }
 
