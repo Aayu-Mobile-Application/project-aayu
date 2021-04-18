@@ -226,7 +226,7 @@
                 android:layout_width="286dp"
                 android:layout_height="145dp"
                 android:fontFamily="cursive"
-                android:text="Team Aayu is consisted of dedicated group of youngsters with the belief of turning innovative ideas into reality..."
+                android:text="Team Aayu is consisted of dedicated group of youngsters with the belief of turning innovative ideas into reality."
                 android:textColor="@color/green"
                 android:textSize="24sp"
                 android:textStyle="normal"
@@ -239,7 +239,7 @@
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="32dp"
                 android:text="Our Vision"
                 android:textColor="@color/green"
                 android:textSize="24sp"
@@ -262,7 +262,7 @@
                 android:id="@+id/textView11"
                 android:layout_width="288dp"
                 android:layout_height="163dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:fontFamily="cursive"
                 android:text="Our vision is to popularize the use of ayurvedic medicine through enhancing the people's knowledge on valuable endemic ayurvedic plants..."
                 android:textColor="@color/green"
@@ -290,7 +290,7 @@
                 android:id="@+id/imageView4"
                 android:layout_width="323dp"
                 android:layout_height="195dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView12"
@@ -314,8 +314,8 @@
                 android:id="@+id/textView14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="Message from Team Aayu"
+                android:layout_marginTop="16dp"
+                android:text="Aayu Developer Team"
                 android:textColor="@color/green"
                 android:textSize="24sp"
                 android:textStyle="normal"
@@ -335,15 +335,20 @@
 
             <TextView
                 android:id="@+id/textView15"
-                android:layout_width="324dp"
-                android:layout_height="127dp"
+                android:layout_width="305dp"
+                android:layout_height="190dp"
                 android:fontFamily="cursive"
-                android:text="No green, No life... Safer the environment, Healthier the life...Save the green, Save the world!!!"
+                android:text="Bhagya Prasandika
+                              Adeepa Jayawardana
+                              Minura Kariyawasam
+                              Aruna Randika
+                              Viraj Lakshitha Bandara
+                              Anuja Dassanayake"
                 android:textColor="@color/green"
                 android:textSize="24sp"
                 android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.54"
+                app:layout_constraintHorizontal_bias="0.8"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 

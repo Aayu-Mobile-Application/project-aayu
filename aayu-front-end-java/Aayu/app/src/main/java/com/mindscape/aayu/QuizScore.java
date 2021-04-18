@@ -1,10 +1,7 @@
 package com.mindscape.aayu;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +9,7 @@ import android.widget.TextView;
 
 public class QuizScore extends AppCompatActivity {
 
+    //declaring elements
     //back home button
     Button backToMainBtn;
     //play again button
@@ -22,30 +20,25 @@ public class QuizScore extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_score);
 
+        //display number of correct answers
         TextView lblForResult = (TextView) findViewById(R.id.resultLbl);
+        //display the final score
         TextView lblForFinalScore = (TextView) findViewById(R.id.finalScoreLbl);
-        //getByBtnId
+        //get button by ID
         backToMainBtn = findViewById(R.id.backToMain);
         //get button by ID
         playAgain = findViewById(R.id.backToQuiz);
 
+        //get intent from quiz activity
         int quizScore = getIntent().getIntExtra("CORRECT_ANSWS", 0);
 
-
-        //setting up final score
-        SharedPreferences totalMrks = getSharedPreferences("quiz", Context.MODE_PRIVATE);
-        int finalScoreObtained = totalMrks.getInt("finalScore", 0);
-
+        //display number of correct answers
         lblForResult.setText(quizScore + " / 10");
-        lblForFinalScore.setText("Final Score: " + quizScore*10);
-        finalScoreObtained += quizScore;
-
-        //adding up the final score
-        SharedPreferences.Editor editor = totalMrks.edit();
-        editor.putInt("finalScore", finalScoreObtained);
-        editor.commit();
+        //display final score
+        lblForFinalScore.setText("Final Score: " + quizScore*10+" /100");
 
         //set intent from quiz to main
+        //back to main activity
         backToMainBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,7 +48,7 @@ public class QuizScore extends AppCompatActivity {
         });
 
         //set intent from score to quiz
-        //set intent from quiz to main
+        //back to quiz activity
         playAgain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,7 +56,5 @@ public class QuizScore extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
-
     }
 }
