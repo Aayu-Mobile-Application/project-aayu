@@ -63,7 +63,7 @@ public class CameraScan extends AppCompatActivity {
     private void takePicture() {
         Intent imageTakeIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         //*****important-make getPackageManager()) == null (convert != to ==) if you run this on a real device
-        if (imageTakeIntent.resolveActivity(getPackageManager()) == null) {
+        if (imageTakeIntent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(imageTakeIntent, imageCaptureCode);
         }
     }
