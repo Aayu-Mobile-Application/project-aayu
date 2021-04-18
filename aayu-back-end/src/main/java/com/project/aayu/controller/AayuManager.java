@@ -24,6 +24,10 @@ public class AayuManager implements AayuInterface{
     public AayuManager(){
         EnglishPlantDatabaseLoad englishPlantDatabaseLoad = new EnglishPlantDatabaseLoad();
         englishPlantDatabaseLoad.EnglishPlantDatabaseLoad();
+        SinhalaPlantDatabaseLoad sinhalaPlantDatabaseLoad=new SinhalaPlantDatabaseLoad();
+        sinhalaPlantDatabaseLoad.SinhalaPlantDatabaseLoad();
+        TamilPlantDatabaseLoad tamilPlantDatabaseLoad=new TamilPlantDatabaseLoad();
+        tamilPlantDatabaseLoad.TamilPlantDatabaseLoad();
     }
 
     @Override

@@ -2,14 +2,14 @@
    
    {
       "idOfPlant":0,
-      "localName":"Mango",
-      "scientificName":"Mangifera indica",
-      "familyName":"Anacardiaceae",
-      "statusOfPlant":"Only Under Cultivation",
-      "treatments":"Helps to keep heart healthy,Purifies blood.",
-      "description":"Medium to large- sized tree with height of 8-30m, leaves are oblong- lanceolate, with size of 10-32 X 2-12 cm.Veins are prominent on lower face with tertiary nerves and reticulate veins. Young leaves are pendulous, purplish. Panicle size is within 6-40 cm, in general hairy. Sepals and Petals are ovoid- oblong and hairy. Yellow or purple veins. Fertile stamens as long as the corolla. Staminodes are very short. Fruits ovoid to ellipsoid, with oblique base, and size of 10-20 cm long.",
-      "similarPlants":"Neem tree‌",
-      "addToLocation":"Mango"
+      "localName":" ",
+      "scientificName":" ",
+      "familyName":" ",
+      "statusOfPlant":" ",
+      "treatments":" ",
+      "description":" ",
+      "similarPlants":" ‌"
+
 
    },
    {
@@ -20,8 +20,8 @@
       "statusOfPlant":"Native",
       "treatments":"Diarrhoea, Dysentery, Sprains, Intestinal haemorrhages, Coughs, Pulmonary disorders, Swollen gums, Styptic, Wounds, Cerebral ailments, Nephritis, Cachexia, Rheumatism, Epilepsy, Cholera, Leucoderma patches.",
       "description":"A small tree or shrub. Bark is grey and rust-brown with a bright yellow-green crownwith hanging leaves and twigs. Twigs are sharply angled or winged. Leaf lamina 4-10x2.5-6 cm; nerves 7-15 pairs. petiole 2-7 mm long. Flower diameter is 3 cm . Fruit exceeds diameter of 3 cm when ripen.",
-      "similarPlants":"Shrub, White marudah",
-       "addToLocation":"Guava"
+      "similarPlants":"Shrub, White marudah"
+
       
       
    },
@@ -33,8 +33,8 @@
       "statusOfPlant":"Native",
       "treatments":"Diarrhoea, Dysentery, Ulcers, Spongy gums, Splenomegaly, Diabetes mellitus.",
       "description":"Large shrub or canopy tree, About 25m tall. Contains slender twigs , terete, cream. Leaves are pale yellowish green with size of 6.5-11 x 2.5-5 cm. Cymes are 10 cm long, terminal or axillary.  Petal size is about 4 x 3 mm, white. Fruit size is about 12(-20) x 8(-14) mm.Turns purple when ripen.",
-      "similarPlants":"‌Guava, White marudah",
-       "addToLocation":"Jamun"
+      "similarPlants":"‌Guava, White marudah"
+
       
    },
    {
@@ -45,8 +45,8 @@
       "statusOfPlant":"Naturalized Exotic",
       "treatments":"Nausea, Diabetes mellitus, Sciatica, Rheumatoid arthritis, Osteoarthritis.",
       "description":"Shrub or small tree up to about 6 m tall. Leaves 5.5-14 (-18) cm long and wide, shallowly 5-lobed or lobes lacking. Stipules minute. Inflorescences subcorymbose, often paired, up to 12 cm long; peduncle up to 7 cm long; petals greenish-yellow. Capsule 2.5-3 x 2 cm. Seeds 1.7 x 1 cm compressed, black.",
-      "similarPlants":"‌Indian pennywort",
-       "addToLocation":"Jatropha"
+      "similarPlants":"‌Indian pennywort"
+
 
    },
    {
@@ -57,19 +57,19 @@
       "statusOfPlant":"Native",
       "treatments":"Heart diseases, Fevers, Skin diseases, Obesity, Wounds, Bone fractures, Dysentery, Piles, Coughs, Leucorrhoea, Candida infections.",
       "description":"A very large tree with a buttressed, spreading base and horizontally spreading branches. Leaves are simple, without stipules, 7.5-15 cm long, 4-7 cm wide; petioles are very short. Flowers in terminal panicles; No petals availble , honey is scented. An indehiscent drupe, 3.5-5 cm long, obovate-ovoid, endocarp fibrous and woody, dark brown; contains solitary seed.",
-      "similarPlants":"Neem Tree‌",
-       "addToLocation":"Arjun"
+      "similarPlants":"Neem Tree‌"
+
    },
    {
       "idOfPlant":5,
-      "localName":"Mango",
-      "scientificName":"Mangifera indica",
-      "familyName":"Anacardiaceae",
-      "statusOfPlant":"Only Under Cultivation",
-      "treatments":"Helps to keep heart healthy, Purifies blood.",
-      "description":"Medium to large- sized tree with height of 8-30m, leaves are oblong- lanceolate, with size of 10-32 X 2-12 cm.Veins are prominent on lower face with tertiary nerves and reticulate veins. Young leaves are pendulous, purplish. Panicle size is within 6-40 cm, in general hairy. Sepals and Petals are ovoid- oblong and hairy. Yellow or purple veins. Fertile stamens as long as the corolla. Staminodes are very short. Fruits ovoid to ellipsoid, with oblique base, and size of 10-20 cm long.",
-      "similarPlants":"Neem tree‌",
-       "addToLocation":"Mango"
+      "localName":" ",
+      "scientificName":" ",
+      "familyName":" ",
+      "statusOfPlant":" ",
+      "treatments":" ",
+      "description":" ",
+      "similarPlants":" ‌"
+
 
    }
    ,
@@ -81,8 +81,7 @@
       "statusOfPlant":"Naturalized Exotic",
       "treatments":"Nausea, Diabetes mellitus, Sciatica, Rheumatoid arthritis, Osteoarthritis.",
       "description":"Shrub or small tree up to about 6 m tall. Leaves 5.5-14 (-18) cm long and wide, shallowly 5-lobed or lobes lacking. Stipules minute. Inflorescences subcorymbose, often paired, up to 12 cm long; peduncle up to 7 cm long; petals greenish-yellow. Capsule 2.5-3 x 2 cm. Seeds 1.7 x 1 cm compressed, black.",
-      "similarPlants":"‌Indian pennywort",
-       "addToLocation":"Jatropha"
+      "similarPlants":"‌Indian pennywort"
 
    }
    ,
@@ -94,8 +93,8 @@
       "statusOfPlant":"Only Under Cultivation",
       "treatments":"Indigestions, Headache",
       "description":"Shrub or tree, to 12 m high, with short stiff spines. Leaves broadly ovate; blades to 8 cm long, 6 cm wide, margins serrate-crenulate; petiole broadly winged. Inflorescence axillary, 1-5 flowered. Flowers fragrant, buds globose; petals white or sometimes cream or pinkish, to 1 cm long. Fruitsubglobose, up to 7 cm diameter; pericarp green to yellow, irregularly bumpy, glandular, pulp greenish, juice acid, bitter. Seds to about 15 x 5 mm.",
-      "similarPlants":"‌Ginger, coffee",
-       "addToLocation":"Kudaludehi"
+      "similarPlants":"‌Ginger, coffee"
+
 
    }
    ,
@@ -107,8 +106,8 @@
       "statusOfPlant":"Native",
       "treatments":"Fevers,Skin ailments, Wounds, Coughs, Asthma, Eye diseases, Worms",
       "description":"A tall tree with spreading branches, stem and young parts glabrous. Leaves imparipinnate compound, extipulate, crowded; rachis 15-22.5 cm long; leaflets 2-8 pairs and a terminal one, shortly stalked, 5-10 cm long, very unequal sided, oblique at the base, margin coarsely dentate-serrate. Inflorescences paniculate, 12.5-20 cm long. Flowers white, sweet scented. Fruit an oblong-ovoid drupe, 1.5-1.8 cm long, greenish yellow, one seeded.",
-      "similarPlants":"‌Pomegranate",
-       "addToLocation":"Neem"
+      "similarPlants":"‌Pomegranate"
+
 
    }
    ,
@@ -120,8 +119,8 @@
       "statusOfPlant":"Native",
       "treatments":"Kidney diseases, Parasites, Leprosy, Lactation disorders, Skin and mucosal diseases, Arthritis, Diarrohea, Rheumatism, Dysentery, Depression, Ear diseases, Genital disorders, Febrifuge, Nervous system disorders, Paralysis, Epilepsy, Spasms, Pains, Obstructions in veins and arteries",
       "description":"Common weed all over the island, prostrate stems 10 cm-1 m long. Leaves 1-6, clustered on a short shoot at each node, orbicular to reniform in outline, 0.5 to 2 cm long, 1-3 cm broad, margins entire, crenate or dentate. Petioles 1-10 cm long, pedicels very short, 0.5 to 1 mm long. Umbels mostly 3-flowered, petals white or rose-tinged, minute. Fruits orbicular to ellipsoid, 2-3 mm long, 3-4 mm broad.",
-      "similarPlants":"‌Neem Tree‌",
-       "addToLocation":"Pennywort"
+      "similarPlants":"‌Neem Tree‌"
+
 
    }
    ,
@@ -133,8 +132,8 @@
       "statusOfPlant":"Naturalized Exotic",
       "treatments":"Tonsillitis, Dyspepsia, Flatulence, Gonorrhea, Coughs, Haemorrhoids",
       "description":"Perennial vine, climber; stem semi-woody; rooting sparingly; nodes thickened; young parts glabrous. Leaves 12.7-17.5 cm long, cordate at base; petioles 2.5-3.7 cm long. Flowers bisexual, sessile in axils of fleshy bracts, arranged in leaf-opposed spikes 5 cm long. Fruit nearly globose, at first dar green, about 6 mm long passing through orange-yellow to dull red when ripe in pendulous spikes 10-15 cm long.",
-      "similarPlants":"‌Arjun,‌ Guava",
-       "addToLocation":"Black pepper"
+      "similarPlants":"‌Arjun,‌ Guava"
+
 
    }
 
