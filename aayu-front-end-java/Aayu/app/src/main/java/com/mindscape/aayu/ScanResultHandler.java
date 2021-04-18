@@ -24,15 +24,17 @@ public class ScanResultHandler extends AsyncTask {
     String jsonPlantId;
     String description;
     String treatments;
-    static String localName;
+    String localName;
     String familyName;
     String plantStatus;
     String similarPlants;
+    static String addToLocationName;
     static int handler_languageId;
     static int plantId;
 
     @Override
     protected Object doInBackground(Object[] objects) {
+        //getting scanned plant details from the API
         try {
             ScanResults.spinner.setVisibility(View.VISIBLE);
             ArrayList<String> stringArray = new ArrayList<String>();
@@ -68,6 +70,7 @@ public class ScanResultHandler extends AsyncTask {
                     familyName = jsonObject.get("familyName").toString();
                     plantStatus = jsonObject.get("statusOfPlant").toString();
                     similarPlants = jsonObject.get("similarPlants").toString();
+                    addToLocationName = jsonObject.get("addToLocation").toString();
 
                     break;
                 }
@@ -95,7 +98,7 @@ public class ScanResultHandler extends AsyncTask {
 
     static void sendData(double lat, double longt) {
         Random rand = new Random();
-
+//adding location
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -108,10 +111,10 @@ public class ScanResultHandler extends AsyncTask {
                     conn.setDoOutput(true);
                     conn.setDoInput(true);
 
-
+//creating the JSON object
                     JSONObject jsonObject=new JSONObject();
                     jsonObject.put("locationId",rand.nextInt(10000));
-                    jsonObject.put("plantName",localName);
+                    jsonObject.put("plantName",addToLocationName);
                     jsonObject.put("latitude",lat);
                     jsonObject.put("longitude",longt);
                     jsonObject.put("user",Global.loggedName);
@@ -121,7 +124,7 @@ public class ScanResultHandler extends AsyncTask {
                     Log.i("JSON", jsonObject.toString());
                     DataOutputStream os = new DataOutputStream(conn.getOutputStream());
                     os.writeBytes(jsonObject.toString());
-
+//releasing resources
                     os.flush();
                     os.close();
 

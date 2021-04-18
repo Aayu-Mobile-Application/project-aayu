@@ -59,7 +59,7 @@ public class CameraScan extends AppCompatActivity {
 
 
     }
-
+//taking permission to use the system camera
     private void takePicture() {
         Intent imageTakeIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         //*****important-make getPackageManager()) == null (convert != to ==) if you run this on a real device
@@ -78,7 +78,7 @@ public class CameraScan extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
         super.onActivityResult(requestCode, resultCode, data);
-
+//loading the image to a Bitmap
         if(requestCode==101){
             if (requestCode == imageCaptureCode && resultCode==RESULT_OK) {
                 Bundle extras = data.getExtras();
