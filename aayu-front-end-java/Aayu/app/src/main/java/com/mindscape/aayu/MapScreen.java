@@ -45,7 +45,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
         searchInput = (EditText) findViewById(R.id.mapview_searchInput);
         spinner = (ProgressBar) findViewById(R.id.progressBar2);
         spinner.setVisibility(View.GONE);
-
+//rendering map
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -81,6 +81,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+    //zooming intoo Sri Lanka
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -124,7 +125,6 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
                 json.append(buff, 0, read);
             }
         } catch (IOException e) {
-            Log.e(LOG_TAG, "Error connecting to service", e);
             throw new IOException("Error connecting to service", e);
         } finally {
             if (conn != null) {
