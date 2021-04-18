@@ -114,7 +114,7 @@ public class ScanResultHandler extends AsyncTask {
 //creating the JSON object
                     JSONObject jsonObject=new JSONObject();
                     jsonObject.put("locationId",rand.nextInt(10000));
-                    jsonObject.put("plantName",addToLocationName);
+                    jsonObject.put("plantName",getCommonName());
                     jsonObject.put("latitude",lat);
                     jsonObject.put("longitude",longt);
                     jsonObject.put("user",Global.loggedName);
@@ -141,5 +141,34 @@ public class ScanResultHandler extends AsyncTask {
 
         thread.start();
 
+    }
+
+    static String getCommonName(){
+        String data="";
+        try {
+            URL url = new URL("https://raw.githubusercontent.com/ArunaRandika/demo/master/db.json");
+            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+            InputStream inputStream = httpURLConnection.getInputStream();
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            String line = "";
+            while (line != null) {
+                line = bufferedReader.readLine();
+                data = data + line;
+
+            }
+            JSONArray jsonArray = new JSONArray(data);
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = (JSONObject) jsonArray.get(i);
+                String jsonPlantId = jsonObject.get("idOfPlant").toString();
+                if (plantId == Integer.parseInt(jsonPlantId)) {
+                    return jsonObject.get("localName").toString();
+                }
+            }
+
+        } catch (JSONException | IOException e) {
+            e.printStackTrace();
+            //TODO-Alert
+        }
+        return  null;
     }
 }
