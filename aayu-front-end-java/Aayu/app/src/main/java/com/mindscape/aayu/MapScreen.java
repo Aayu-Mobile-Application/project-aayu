@@ -143,6 +143,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
     }
 
     void createMarkersFromJson(String json) throws JSONException {
+        mMap.clear();
         // De-serialize the JSON string into an array of plant objects
         JSONArray jsonArray = new JSONArray(json);
         for (int i = 0; i < jsonArray.length(); i++) {

@@ -39,7 +39,7 @@ import java.nio.ByteBuffer;
 import static androidx.constraintlayout.motion.widget.Debug.getLocation;
 import static com.mindscape.aayu.ScanResultHandler.sendData;
 
-public class ScanResults extends AppCompatActivity implements LocationListener {
+public class ScanResults extends AppCompatActivity  {
 
     private Bitmap scannedImage;
     private ImageView imageView;
@@ -55,6 +55,7 @@ public class ScanResults extends AppCompatActivity implements LocationListener {
     private static final int LOCATION_REQUEST = 1340;
     private double latitude;
     private double longitude;
+    Location location;
 
 
     @Override
@@ -72,6 +73,14 @@ public class ScanResults extends AppCompatActivity implements LocationListener {
         description = (TextView) findViewById(R.id.scan_plantDescription);
         spinner = (ProgressBar) findViewById(R.id.progressBar1);
         fetchLocation = (Button) findViewById(R.id.scan_fetchLocation);
+        GPSTracker gps = new GPSTracker(this);
+        if (gps.canGetLocation()) {
+            LocationManager locationManager = (LocationManager)    getSystemService(LOCATION_SERVICE);
+            if (locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+                longitude = gps.getLongitude();
+                latitude= gps.getLatitude();
+            }
+        }
         fetchLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -223,52 +232,9 @@ public class ScanResults extends AppCompatActivity implements LocationListener {
     }
 
     void getLocation() {
-        try {
-            if (canAccessLocation()) {
-                locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 10, 5, this);
-            } else {
-                requestPermissions(LOCATION_PERMS, LOCATION_REQUEST);
-            }
-
-        } catch (SecurityException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void onLocationChanged(@NonNull Location location) {
-        //the API link relevant to the Fetch location method goes here
-        System.out.println(location.getLatitude() + " " + location.getLongitude());
-        latitude = location.getLatitude();
-        longitude = location.getLongitude();
-        System.out.println(Global.loggedName);
         sendData(latitude, longitude);
-//
     }
 
-    @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
-
-    }
-
-    @Override
-    public void onProviderEnabled(@NonNull String provider) {
-
-    }
-
-    @Override
-    public void onProviderDisabled(@NonNull String provider) {
-
-    }
-
-    private boolean canAccessLocation() {
-        return (hasPermission(Manifest.permission.ACCESS_FINE_LOCATION));
-    }
-
-    private boolean hasPermission(String perm) {
-        return (PackageManager.PERMISSION_GRANTED == checkSelfPermission(perm));
-    }
 
 
 
