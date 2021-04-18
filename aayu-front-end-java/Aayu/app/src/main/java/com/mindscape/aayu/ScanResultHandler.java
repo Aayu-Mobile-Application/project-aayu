@@ -28,7 +28,6 @@ public class ScanResultHandler extends AsyncTask {
     String familyName;
     String plantStatus;
     String similarPlants;
-    static String addToLocationName;
     static int handler_languageId;
     static int plantId;
 
@@ -38,14 +37,14 @@ public class ScanResultHandler extends AsyncTask {
         try {
             ScanResults.spinner.setVisibility(View.VISIBLE);
             ArrayList<String> stringArray = new ArrayList<String>();
-            URL url = new URL("https://raw.githubusercontent.com/ArunaRandika/demo/master/db.json");
+            URL url = new URL("http://3.19.27.17:8090/englishplant");
             if (Global.langId == 2) {
                 //sinhala link
-                url = new URL("https://raw.githubusercontent.com/ArunaRandika/demo/master/sinhala-dataset.json");
+                url = new URL("http://3.19.27.17:8090/sinhalaplant");
                 System.out.println("sinhala");
             } else if (Global.langId == 3) {
                 //tamil link
-                url = new URL("https://raw.githubusercontent.com/ArunaRandika/demo/master/tamil-dataset.json");
+                url = new URL("http://3.19.27.17:8090/tamilplant");
                 System.out.println("tamil");
             }
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -70,7 +69,6 @@ public class ScanResultHandler extends AsyncTask {
                     familyName = jsonObject.get("familyName").toString();
                     plantStatus = jsonObject.get("statusOfPlant").toString();
                     similarPlants = jsonObject.get("similarPlants").toString();
-                    addToLocationName = jsonObject.get("addToLocation").toString();
 
                     break;
                 }
@@ -103,7 +101,7 @@ public class ScanResultHandler extends AsyncTask {
             @Override
             public void run() {
                 try {
-                    URL url = new URL("https://aayu-backend-api.herokuapp.com/location/add");
+                    URL url = new URL("http://3.19.27.17:8090/location/add");
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setRequestMethod("POST");
                     conn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
@@ -146,7 +144,7 @@ public class ScanResultHandler extends AsyncTask {
     static String getCommonName(){
         String data="";
         try {
-            URL url = new URL("https://raw.githubusercontent.com/ArunaRandika/demo/master/db.json");
+            URL url = new URL("http://3.19.27.17:8090/englishplant");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));

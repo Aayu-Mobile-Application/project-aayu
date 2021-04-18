@@ -99,7 +99,7 @@ public class AppLogin extends AppCompatActivity {
                 // image of the user
                 Uri personPhoto = acct.getPhotoUrl();
 
-                Toast.makeText(this, "Name: "+personFamilyName, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Welcome: "+personFamilyName, Toast.LENGTH_SHORT).show();
                 Global.loggedName=personName;
 
 

@@ -107,7 +107,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
     }
 
     protected void retrieveAndAddCities(String plantName) throws IOException {
-//        SERVICE_URL="edit as you prefer with the plantName";
+       SERVICE_URL="http://3.19.27.17:8090/location/"+plantName;
 
         HttpURLConnection conn = null;
         final StringBuilder json = new StringBuilder();
