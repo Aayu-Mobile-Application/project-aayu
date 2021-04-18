@@ -43,7 +43,7 @@ public class ScanResultHandler extends AsyncTask {
                 System.out.println("sinhala");
             } else if (Global.langId == 3) {
                 //tamil link
-                url = new URL("https://raw.githubusercontent.com/ArunaRandika/demo/master/db.json");
+                url = new URL("https://raw.githubusercontent.com/ArunaRandika/demo/master/tamil-dataset.json");
                 System.out.println("tamil");
             }
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
