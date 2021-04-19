@@ -109,7 +109,6 @@ public class ScanResultHandler extends AsyncTask {
                     conn.setRequestProperty("Accept","application/json");
                     conn.setDoOutput(true);
                     conn.setDoInput(true);
-
 //creating the JSON object
                     JSONObject jsonObject=new JSONObject();
                     jsonObject.put("locationId",rand.nextInt(10000));
@@ -118,18 +117,14 @@ public class ScanResultHandler extends AsyncTask {
                     jsonObject.put("longitude",longt);
                     jsonObject.put("user",Global.loggedName);
 
-
-
                     Log.i("JSON", jsonObject.toString());
                     DataOutputStream os = new DataOutputStream(conn.getOutputStream());
                     os.writeBytes(jsonObject.toString());
 //releasing resources
                     os.flush();
                     os.close();
-
                     Log.i("STATUS", String.valueOf(conn.getResponseCode()));
                     Log.i("MSG" , conn.getResponseMessage());
-
                     conn.disconnect();
                 } catch (Exception e) {
                     e.printStackTrace();

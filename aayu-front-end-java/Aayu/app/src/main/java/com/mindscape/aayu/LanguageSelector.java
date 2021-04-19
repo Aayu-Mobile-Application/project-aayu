@@ -29,7 +29,7 @@ public class LanguageSelector extends AppCompatActivity {
             public void onClick(View v) {
                 int lang_languageId = 1;
                 openScanResultsScreen(lang_languageId);
-
+                System.out.println(lang_languageId);
 
             }
         });
