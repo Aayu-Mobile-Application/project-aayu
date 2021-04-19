@@ -50,13 +50,13 @@
    },
    {
       "idOfPlant":4,
-      "localName":"மருத மரம்",
-      "scientificName":"Terminalia arjuna",
-      "familyName":"Combretaceae",
-      "statusOfPlant":"உள்நாட்டு",
-      "treatments":"இருதய நோய்கள், காய்ச்சல், சர்ம நோய்கள், அதிக உடற்பருமன், காயங்கள், எலும்பு முறிவு, வயிற்றுப் போக்கு, மூல வியாதி, இருமல், வெள்ளை படுதல்",
-      "description":"நன்றாக வளரும், பரந்;த வேர் தொகுதியைக் கொண்ட மரமாகும்.கிழைகள் நிலைக்குத்தாக பரந்திருக்கும்.உப  இலைகளற்ற 7.5-15cm அகல கட்டையான காம்புகளைக் கொண்ட இலைகள் உள்ளன.கிழைகளின் உச்சியில் பூக்கள் கொத்துகளாக உள்ளன.பூ இதழ்கள் தெளிவில்லை.மகரந்தம் மணமுடையதாகும்.",
-      "similarPlants":"வேம்பு‌"
+      "localName":" ",
+      "scientificName":" ",
+      "familyName":" ",
+      "statusOfPlant":" ",
+      "treatments":" ",
+      "description":" ",
+      "similarPlants":" "
 
    },
    {
@@ -72,7 +72,7 @@
    ,
    {
       "idOfPlant":6,
-      "localName":"ஆமணக்கை மரம்",
+      "localName":"ஆமணக்கை",
       "scientificName":"Jatropha curcas",
       "familyName":"Euphorbiaceae",
       "statusOfPlant":"வெளிநாட்டு",

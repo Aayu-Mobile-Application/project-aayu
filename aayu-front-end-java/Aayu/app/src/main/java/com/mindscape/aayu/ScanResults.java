@@ -154,12 +154,7 @@ public class ScanResults extends AppCompatActivity  {
 
                     System.out.println("index value: " + index);
 
-
-                     System.out.println("Jatropha - 6");
-                     System.out.println("Kohomba - 8");
-                     System.out.println("K-Dehi - 7");
-                     System.out.println("Pennywort - 9");
-                     System.out.println("Pepper - 10");
+                    System.out.println("Jatropha - 6  |  Kudaludehi - 7 | Neem - 8 | Pennywort - 9 | Black pepper - 10");
 
                 }
             }
@@ -215,11 +210,9 @@ public class ScanResults extends AppCompatActivity  {
                     //   }
 
                     System.out.println("index value: " + index);
-                    System.out.println("------------------------------------------");
-                    System.out.println("Guava - INDEX 1");
-                    System.out.println("Jamun - INDEX 2");
-                    System.out.println("Jatropha - INDEX 3");
-                    System.out.println("------------------------------------------");
+
+                    System.out.println("Guava -  1  |  Jamun -  2  |  Jatropha -  3");
+
                 }
             }
 
