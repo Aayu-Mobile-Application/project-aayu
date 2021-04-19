@@ -3,6 +3,7 @@ package com.mindscape.aayu;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -35,6 +36,7 @@ public class CameraScan extends AppCompatActivity {
         importImage = (Button) findViewById(R.id.button3);
         confirmImage = (Button) findViewById(R.id.confirm);
         leafType=getIntent().getIntExtra("leafType",0);
+        requestPermissions(  new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 99);
         openCameraButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
