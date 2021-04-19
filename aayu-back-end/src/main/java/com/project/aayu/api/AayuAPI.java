@@ -16,35 +16,32 @@ public class AayuAPI {
     @Autowired
     private AayuManager aayuManager;
 
+    // search the plant
     @GetMapping("/location/{location}")
     public List<Map> getLocationDetails(@PathVariable("location") String location){
         return aayuManager.viewLocation(location);
     }
 
-    @PostMapping("/location/add")
+    // location add to server
+    @PostMapping("/location/location")
     public void addNewLocation(@RequestBody Map newLocation){
         aayuManager.addLocation(newLocation);
     }
 
-    @GetMapping("/user")
-    public List<User> getUserDetails(){
-        return aayuManager.viewUser();
-    }
-
-    //english-plant
-    @GetMapping("/englishplant")
+    // return english plant dataset
+    @GetMapping("/plant/englishplant")
     public List<Plant> getPlantInformation() {
         return aayuManager.viewEnglishPlantData();
     }
 
-    //sinhala-plant
-    @GetMapping("/sinhalaplant")
+    // return sinhala plant dataset
+    @GetMapping("/plant/sinhalaplant")
     public List<Plant> getPlantInformationSinhala() {
         return aayuManager.viewSinhalaPlantData();
     }
 
-    //tamil-plant
-    @GetMapping("/tamilplant")
+    // return tamil plant dataset
+    @GetMapping("/plant/tamilplant")
     public List<Plant> getPlantInformationTamil() {
         return aayuManager.viewTamilPlantData();
     }
