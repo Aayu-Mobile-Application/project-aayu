@@ -111,8 +111,8 @@ public class CameraScan extends AppCompatActivity {
             Intent intent = new Intent(this,LanguageSelector.class);
             Global.img=imageBitmap;
             intent.putExtra("leafType", leafType);
-                startActivity(intent);
-                finish();
+            startActivity(intent);
+
 
 
         }else{
