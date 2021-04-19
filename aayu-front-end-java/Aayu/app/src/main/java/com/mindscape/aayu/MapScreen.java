@@ -109,7 +109,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
     }
 
     protected void retrieveAndAddCities(String plantName) throws IOException {
-       SERVICE_URL="http://3.19.27.17:8090/location/"+plantName;
+       SERVICE_URL="http://ec2-3-19-27-17.us-east-2.compute.amazonaws.com:8090/location/"+plantName;
 
         HttpURLConnection conn = null;
         final StringBuilder json = new StringBuilder();

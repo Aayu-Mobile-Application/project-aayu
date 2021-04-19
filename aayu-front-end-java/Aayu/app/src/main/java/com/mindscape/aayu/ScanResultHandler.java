@@ -37,14 +37,14 @@ public class ScanResultHandler extends AsyncTask {
         //getting scanned plant details from the API
         try {
             ScanResults.spinner.setVisibility(View.VISIBLE);
-            URL url = new URL("http://3.19.27.17:8090/englishplant");
+            URL url = new URL("http://ec2-3-19-27-17.us-east-2.compute.amazonaws.com:8090/plant/englishplant");
             if (Global.langId == 2) {
                 //sinhala link
-                url = new URL("http://3.19.27.17:8090/sinhalaplant");
+                url = new URL("http://ec2-3-19-27-17.us-east-2.compute.amazonaws.com:8090/plant/sinhalaplant");
                 System.out.println("sinhala");
             } else if (Global.langId == 3) {
                 //tamil link
-                url = new URL("http://3.19.27.17:8090/tamilplant");
+                url = new URL("http://ec2-3-19-27-17.us-east-2.compute.amazonaws.com:8090/plant/tamilplant");
                 System.out.println("tamil");
             }
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -102,7 +102,7 @@ public class ScanResultHandler extends AsyncTask {
             @Override
             public void run() {
                 try {
-                    URL url = new URL("http://3.19.27.17:8090/location/add");
+                    URL url = new URL("http://ec2-3-19-27-17.us-east-2.compute.amazonaws.com:8090/location/location");
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setRequestMethod("POST");
                     conn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
@@ -140,7 +140,7 @@ public class ScanResultHandler extends AsyncTask {
     static String getCommonName(){
         String data="";
         try {
-            URL url = new URL("http://3.19.27.17:8090/englishplant");
+            URL url = new URL("http://ec2-3-19-27-17.us-east-2.compute.amazonaws.com:8090/plant/englishplant");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
