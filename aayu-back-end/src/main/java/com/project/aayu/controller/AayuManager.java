@@ -7,7 +7,6 @@ import com.project.aayu.database.SinhalaPlantDatabaseLoad;
 import com.project.aayu.database.TamilPlantDatabaseLoad;
 import com.project.aayu.model.Map;
 import com.project.aayu.model.Plant;
-import com.project.aayu.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -89,19 +88,6 @@ public class AayuManager implements AayuInterface{
 
         return locationDataSet;
     }
-
-    //add user
-    @Override
-    public void addNewUser(int userId, String userName, String userEmail) {
-
-    }
-
-    //get user
-    @Override
-    public List<User> viewUser() {
-        return null;
-    }
-
 
     
 }

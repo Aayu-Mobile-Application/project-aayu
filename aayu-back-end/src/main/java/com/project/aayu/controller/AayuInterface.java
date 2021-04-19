@@ -11,10 +11,6 @@ public interface AayuInterface {
     void addLocation(Map newLocation);
     // get location details
     List<Map> viewLocation(String plantLocationName);
-    // add new user
-    void addNewUser(int userId, String userName, String userEmail);
-    // view user details
-    List<User> viewUser();
     // view plant details - english
     List<Plant> viewEnglishPlantData();
     // view plant details - sinhala
