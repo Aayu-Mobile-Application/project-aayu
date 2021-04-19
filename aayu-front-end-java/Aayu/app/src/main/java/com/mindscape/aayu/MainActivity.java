@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     //map btn
      ImageView mapBtn;
     //quiz btn
-     ImageView quizBtn;
+     ImageView quizBtn,imageView8;
      TextView name;
 
     @SuppressLint("SetTextI18n")
@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         //getByBtnId
         quizBtn = findViewById(R.id.quizbtn);
         name=findViewById(R.id.main_txtUname);
+        imageView8=findViewById(R.id.imageView8);
 
         name.setText("Hello "+Global.loggedName);
         //set intent from main to scan
@@ -58,6 +59,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(),AppQuiz.class);
+                startActivity(i);
+            }
+        });
+        imageView8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(),AppHelp.class);
                 startActivity(i);
             }
         });

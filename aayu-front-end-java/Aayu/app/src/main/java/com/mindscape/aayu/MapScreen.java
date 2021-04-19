@@ -2,6 +2,7 @@ package com.mindscape.aayu;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
@@ -50,13 +51,14 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         searchButton.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("WrongConstant")
             @Override
             public void onClick(View v) {
                 plantName = searchInput.getText().toString();
                 if (!plantName.equals("")) {
                     setUpMap(plantName);
                 }else{
-                    //TODO
+                    Toast.makeText(MapScreen.this,"Please enter a Local plant name", 4).show();
                 }
 
 
@@ -146,19 +148,26 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
         mMap.clear();
         // De-serialize the JSON string into an array of plant objects
         JSONArray jsonArray = new JSONArray(json);
-        for (int i = 0; i < jsonArray.length(); i++) {
-            // creating markers
-            JSONObject jsonObj = jsonArray.getJSONObject(i);
 
-            mMap.addMarker(new MarkerOptions()
-                    .title(jsonObj.getString("user"))
-                    .position(new LatLng(
-                            jsonObj.getDouble("latitude"), jsonObj.getDouble("longitude")
 
-                    ))
-            );
+        if(jsonArray.length()!=0){
+            for (int i = 0; i < jsonArray.length(); i++) {
+                // creating markers
+                JSONObject jsonObj = jsonArray.getJSONObject(i);
 
+                mMap.addMarker(new MarkerOptions()
+                        .title(jsonObj.getString("user"))
+                        .position(new LatLng(
+                                jsonObj.getDouble("latitude"), jsonObj.getDouble("longitude")
+
+                        ))
+                );
+
+            }
+        }else{
+            Toast.makeText(this,"No Match Found!",Toast.LENGTH_LONG).show();
         }
+
         spinnerSetup(false);
     }
 

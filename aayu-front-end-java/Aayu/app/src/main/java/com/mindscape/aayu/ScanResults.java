@@ -171,6 +171,7 @@ public class ScanResults extends AppCompatActivity  {
 
 
         handlerExecution(index);
+        System.out.println(index);
     }
 
     public void ResNet() {
@@ -226,6 +227,7 @@ public class ScanResults extends AppCompatActivity  {
             e.printStackTrace();
         }
         handlerExecution(index);
+        System.out.println(index);
 
     }
 
@@ -234,6 +236,7 @@ public class ScanResults extends AppCompatActivity  {
         ScanResultHandler.plantId = plantIdNo;
         ScanResultHandler.handler_languageId = languageId;
         scanResultHandler.execute();
+
 
     }
 
