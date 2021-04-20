@@ -226,12 +226,12 @@
                 android:layout_width="286dp"
                 android:layout_height="145dp"
                 android:fontFamily="cursive"
-                android:text="Team Aayu is consisted of dedicated group of youngsters with the belief of turning innovative ideas into reality."
+                android:text="Team Aayu consists of a dedicated group of youngsters with the belief of turning innovative ideas into reality"
                 android:textColor="@color/green"
                 android:textSize="24sp"
                 android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.41"
+                app:layout_constraintHorizontal_bias="0.52"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -239,7 +239,7 @@
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="28dp"
                 android:text="Our Vision"
                 android:textColor="@color/green"
                 android:textSize="24sp"
@@ -264,7 +264,7 @@
                 android:layout_height="163dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="cursive"
-                android:text="Our vision is to popularize the use of ayurvedic medicine through enhancing the people's knowledge on valuable endemic ayurvedic plants..."
+                android:text="Our vision is to popularize the use of ayurvedic medicine through enhancing the people's knowledge on valuable endemic ayurvedic plants"
                 android:textColor="@color/green"
                 android:textSize="24sp"
                 android:textStyle="normal"
@@ -292,21 +292,23 @@
                 android:layout_height="195dp"
                 android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.46"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView12"
                 app:srcCompat="@drawable/mission" />
 
             <TextView
                 android:id="@+id/textView13"
-                android:layout_width="271dp"
-                android:layout_height="126dp"
+                android:layout_width="318dp"
+                android:layout_height="127dp"
                 android:layout_marginTop="24dp"
                 android:fontFamily="cursive"
-                android:text="Our ultimate goal is to turn Aayu app into an outstanding mobile app where everyone in the world can be benifitted equaly..."
+                android:text="Our ultimate goal is to turn Aayu app into an outstanding mobile app where everyone in the world can be benefited equally"
                 android:textColor="@color/green"
                 android:textSize="24sp"
                 android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.52"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
@@ -320,7 +322,7 @@
                 android:textSize="24sp"
                 android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.33"
+                app:layout_constraintHorizontal_bias="0.23"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
