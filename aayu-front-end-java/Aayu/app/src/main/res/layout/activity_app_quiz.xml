@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Ayu Quiz"
+            android:text="Aayu Quiz"
             android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="normal"

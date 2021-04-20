@@ -42,102 +42,137 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Signing In"
-        android:textColor="#009688"
-        android:textSize="18sp"
-        android:textStyle="bold"
+
+    <ScrollView
+        android:layout_width="363dp"
+        android:layout_height="483dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutHeader" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="MissingConstraints">
 
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="346dp"
-        android:layout_height="72dp"
-        android:layout_marginTop="8dp"
-        android:text="Press the Sign In With Google Button to Sign in /Sign up with your Gmail. Your Personal information will not be shared with any other party against your will."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.802"
+            tools:ignore="MissingConstraints">
 
-    <!--scan leaf-->
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Scanning a Leaf"
-        android:textColor="#009688"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Signing In"
+                android:textColor="#009688"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layoutHeader"
+                tools:ignore="NotSibling" />
 
-    <TextView
-        android:id="@+id/textView21"
-        android:layout_width="348dp"
-        android:layout_height="129dp"
-        android:layout_marginTop="8dp"
-        android:text="Go to Scan Plant option in the Main Menu and Choose the Status of the Leaf accordingly.After that Open the camera or Import
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="346dp"
+                android:layout_height="72dp"
+                android:layout_marginTop="8dp"
+                android:text="Press the Sign In With Google Button to Sign in /Sign up with your Gmail. Your Personal information will not be shared with any other party against your will."
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+            <!--scan leaf-->
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Scanning a Leaf"
+                android:textColor="#009688"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+            <!--    plant location-->
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="348dp"
+                android:layout_height="129dp"
+                android:layout_marginTop="8dp"
+                android:text="Go to Scan Plant option in the Main Menu and Choose the Status of the Leaf accordingly.After that Open the camera or Import
 a image from the Gallery.Press Confirm. Choose the Language you prefer and see the Result. Press Add Palnt Location if you want
 to add the Details about the plant to our database and let other people know."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
-<!--    plant location-->
-    <TextView
-        android:id="@+id/textView22"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Search Plant Location"
-        android:textColor="#009688"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView21" />
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Search Plant Location"
+                android:textColor="#009688"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
-    <TextView
-        android:id="@+id/textView23"
-        android:layout_width="345dp"
-        android:layout_height="79dp"
-        android:layout_marginTop="8dp"
-        android:text="Select Aayu Map if you want to see the location of a specific plant. Search the Local Name of the plant and the Relevant location will be shown on the map."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+            <!--    quiz-->
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="345dp"
+                android:layout_height="79dp"
+                android:layout_marginTop="8dp"
+                android:text="Select Aayu Map if you want to see the location of a specific plant. Search the Local Name of the plant and the Relevant location will be shown on the map."
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.333"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
-<!--    quiz-->
-    <TextView
-        android:id="@+id/textView24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Quiz"
-        android:textColor="#009688"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Quiz"
+                android:textColor="#009688"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
-    <TextView
-        android:id="@+id/textView25"
-        android:layout_width="340dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="8dp"
-        android:text="Select Aayu Quiz to play the Quiz. You Will be given 10 questions to answer. Once you finished all the questions, marks willl be shown."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="340dp"
+                android:layout_height="57dp"
+                android:layout_marginTop="8dp"
+                android:text="Select Aayu Quiz to play the Quiz. You Will be given 10 questions to answer. Once you finished all the questions, marks willl be shown."
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView24"
+                app:layout_constraintVertical_bias="0.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
