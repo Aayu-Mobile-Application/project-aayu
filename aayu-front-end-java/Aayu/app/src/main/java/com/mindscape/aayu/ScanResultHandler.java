@@ -118,11 +118,11 @@ public class ScanResultHandler extends AsyncTask {
                     jsonObject.put("user",Global.loggedName);
 
                     Log.i("JSON", jsonObject.toString());
-                    DataOutputStream os = new DataOutputStream(conn.getOutputStream());
-                    os.writeBytes(jsonObject.toString());
+                    DataOutputStream dataOut = new DataOutputStream(conn.getOutputStream());
+                    dataOut.writeBytes(jsonObject.toString());
 //releasing resources
-                    os.flush();
-                    os.close();
+                    dataOut.flush();
+                    dataOut.close();
                     Log.i("STATUS", String.valueOf(conn.getResponseCode()));
                     Log.i("MSG" , conn.getResponseMessage());
                     conn.disconnect();

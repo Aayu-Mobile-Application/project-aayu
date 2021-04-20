@@ -1,16 +1,10 @@
 package com.mindscape.aayu;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.location.Location;
-import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,19 +20,13 @@ import com.mindscape.aayu.ml.Alexnetmodelaayu;
 import com.mindscape.aayu.ml.Resnetmodelfin;
 
 
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.tensorflow.lite.DataType;
 import org.tensorflow.lite.support.image.TensorImage;
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
 
-import java.io.DataOutputStream;
 import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.nio.ByteBuffer;
 
-import static androidx.constraintlayout.motion.widget.Debug.getLocation;
 import static com.mindscape.aayu.ScanResultHandler.sendData;
 
 public class ScanResults extends AppCompatActivity  {
@@ -74,7 +62,7 @@ public class ScanResults extends AppCompatActivity  {
         description = (TextView) findViewById(R.id.scan_plantDescription);
         spinner = (ProgressBar) findViewById(R.id.progressBar1);
         fetchLocation = (Button) findViewById(R.id.scan_fetchLocation);
-        GPSTracker gps = new GPSTracker(this);
+        LocationServices gps = new LocationServices(this);
         if (gps.canGetLocation()) {
             LocationManager locationManager = (LocationManager)    getSystemService(LOCATION_SERVICE);
             if (locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
